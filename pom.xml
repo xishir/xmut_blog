@@ -36,11 +36,17 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--数据库连接jdbc依赖-->
+        <!--mybaits在spring-boot中的依赖-->
+		<dependency>
+		    <groupId>org.mybatis.spring.boot</groupId>
+		    <artifactId>mybatis-spring-boot-starter</artifactId>
+		    <version>1.2.0</version>
+		</dependency>
+        <!--数据库连接jdbc依赖
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency>
+		</dependency-->
 		<!--mysql链接依赖-->
 		<dependency>
 		    <groupId>mysql</groupId>
@@ -52,6 +58,16 @@
 		    <artifactId>druid</artifactId>
 		    <version>1.0.5</version>
 		</dependency>
+		<!--spring切面aop依赖-->
+		<!--dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-aop</artifactId>
+		</dependency -->
+		<!--spring freemark-->
+		<dependency>  
+			<groupId>org.springframework.boot</groupId>  
+			<artifactId>spring-boot-starter-freemarker</artifactId>  
+		</dependency>  
     </dependencies>
 
     <build>

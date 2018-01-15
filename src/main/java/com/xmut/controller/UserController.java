@@ -1,6 +1,9 @@
 package com.xmut.controller;  
     
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,5 +57,18 @@ public class UserController {
     @DeleteMapping("/deleteUserByUserId/{id}")
     public void deleteUserByUserId(@PathVariable("id")  Integer id){
         userService.deleteUserByUserId(id);
+    }
+    
+    /**
+     * 添加用户2
+     * @param userInfo
+     */
+    @PostMapping("/createUser2")
+    public String createUser2(@Valid UserInfo userInfo, BindingResult bindingResult){
+        if (bindingResult.hasErrors()){
+            return bindingResult.getFieldError().getDefaultMessage();
+        }
+        userService.createUser(userInfo.getTel(),userInfo.getPassWord());
+        return "OK";
     }
 }
