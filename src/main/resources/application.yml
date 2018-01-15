@@ -1,2 +1,8 @@
 server:
   port: 9090
+spring:
+  datasource:
+    url: jdbc:mysql://120.78.57.208:3308/tp_user
+    password: xmutkeshe
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
