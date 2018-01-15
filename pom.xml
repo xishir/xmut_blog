@@ -10,56 +10,57 @@
   <name>xmut</name>
   <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    <!--父类依赖，spring boot 1.5.2，其中核心依赖：spring-boot-starter，包括自动配置，日志和yaml-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.2.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
-  <!-- Inherit defaults from Spring Boot -->  
-    <parent>  
-        <groupId>org.springframework.boot</groupId>  
-        <artifactId>spring-boot-starter-parent</artifactId>  
-        <version>1.4.0.BUILD-SNAPSHOT</version>  
-    </parent>  
-  
-    <!-- Add typical dependencies for a web application -->  
-    <dependencies>  
-        <dependency>  
-            <groupId>org.springframework.boot</groupId>  
-            <artifactId>spring-boot-starter-web</artifactId>  
-        </dependency>  
-    </dependencies>  
-  
-    <!-- Package as an executable jar -->  
-    <build>  
-        <plugins>  
-            <plugin>  
-                <groupId>org.springframework.boot</groupId>  
-                <artifactId>spring-boot-maven-plugin</artifactId>  
-            </plugin>  
-        </plugins>  
-    </build>  
-  
-    <!-- Add Spring repositories -->  
-    <!-- (you don't need this if you are using a .RELEASE version) -->  
-    <repositories>  
-        <repository>  
-            <id>spring-snapshots</id>  
-            <url>http://repo.spring.io/snapshot</url>  
-            <snapshots><enabled>true</enabled></snapshots>  
-        </repository>  
-        <repository>  
-            <id>spring-milestones</id>  
-            <url>http://repo.spring.io/milestone</url>  
-        </repository>  
-    </repositories>  
-    <pluginRepositories>  
-        <pluginRepository>  
-            <id>spring-snapshots</id>  
-            <url>http://repo.spring.io/snapshot</url>  
-        </pluginRepository>  
-        <pluginRepository>  
-            <id>spring-milestones</id>  
-            <url>http://repo.spring.io/milestone</url>  
-        </pluginRepository>  
-    </pluginRepositories>  
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <!--spring boot的web依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--测试模块所需要的依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--数据库连接jdbc依赖-->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<!--mysql链接依赖-->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!--阿里druid数据库链接依赖-->
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>druid</artifactId>
+		    <version>1.0.5</version>
+		</dependency>
+    </dependencies>
+
+    <build>
+        <!--插件，使用mvn进行打包，打包成一个jar文件-->
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
