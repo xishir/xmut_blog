@@ -20,5 +20,11 @@ public class WebController {
         map.put("title", "HelloWorld");  
         return "admin/main";  
     }  
+    
+    @RequestMapping("/login")
+    public String log(ModelMap map){  
+        map.put("title", "login");  
+        return "admin/login";  
+    }  
       
 }  
