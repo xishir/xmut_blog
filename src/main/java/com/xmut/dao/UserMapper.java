@@ -18,7 +18,7 @@ public interface UserMapper {
     @Insert("INSERT INTO blog.k_user(use_name,use_password) VALUES (#{use_name},md5(#{use_password}))")
     void createUser(Map<String, Object> reqMap);
 
-    @Select("select tel,nickname,password FROM blog.k_user WHERE user_id = #{user_id}")
+    @Select("select * FROM blog.k_user WHERE user_id = #{user_id}")
     UserInfo getUser(@Param("user_id") Integer user_id);
     
     @Select("select * FROM blog.k_user ")
