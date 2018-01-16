@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -78,5 +80,11 @@ public class UserController {
         service.createUser(reqMap);
     }
 
-
+    @PostMapping("/logincheck")
+    public String logcheck(ModelMap map){  
+//    	Map datamap=new HashMap<String, Object>();
+//    	datamap.put("msg", "200");
+    	System.out.println("ccc1!");
+        return "OK";
+    }  
 }
