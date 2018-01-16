@@ -16,8 +16,8 @@ public class UserService {
     private UserMapper userMapper;
 
 
-    public void updateUser(String user_id, String nickName) {
-    	userMapper.updateUser(user_id,nickName);
+    public void updateUser(String user_id, String user_name,String uer_password) {
+    	userMapper.updateUser(user_id,user_name,uer_password);
     }
 
     public UserInfo getUser(Integer id) {

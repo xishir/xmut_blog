@@ -15,18 +15,18 @@ import com.xmut.pojo.UserInfo;
 @Mapper
 public interface UserMapper {
 
-    @Insert("INSERT INTO keshe.tp_user(tel,password,nickname,secret) VALUES (#{tel},md5(#{pwd}),#{tel},'')")
+    @Insert("INSERT INTO blog.k_user(use_name,use_password) VALUES (#{use_name},md5(#{use_password}))")
     void createUser(Map<String, Object> reqMap);
 
-    @Select("select tel,nickname,password FROM keshe.tp_user WHERE user_id = #{id}")
-    UserInfo getUser(@Param("id") Integer id);
+    @Select("select tel,nickname,password FROM blog.k_user WHERE user_id = #{user_id}")
+    UserInfo getUser(@Param("user_id") Integer user_id);
     
-    @Select("select tel,nickname,password FROM keshe.tp_user")
+    @Select("select tel,nickname,password FROM blog.k_user ")
     ArrayList<UserInfo> getUsers();
 
-    @Update("UPDATE keshe.tp_user SET nickname = #{nickName} WHERE user_id = #{userId}")
-    void updateUser(@Param("userId") String user_id, @Param("nickName") String nickName);
+    @Update("UPDATE blog.k_user SET user_name = #{user_name},user_password=#{user_password} WHERE user_id = #{user_id}")
+    void updateUser(@Param("user_id") String user_id, @Param("user_name") String user_name, @Param("user_password") String user_password);
 
-    @Delete("DELETE FROM keshe.tp_user WHERE tel = #{tel}")
+    @Delete("DELETE FROM blog.k_user WHERE user_id = #{user_id}")
     void deleteUserByUserId(UserInfo userInfo);
 }

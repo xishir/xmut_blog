@@ -32,8 +32,8 @@ public class UserController {
      * @param nickName 昵称
      */
     @GetMapping("/updateUser/{id}")
-    public void updateUser(@PathVariable("id") String user_id, @RequestParam("nickName") String nickName){
-        service.updateUser(user_id,nickName);
+    public void updateUser(@PathVariable("id") String user_id, @RequestParam("user_name") String user_name, @RequestParam("user_password") String user_password){
+        service.updateUser(user_id,user_name,user_password);
     }
 
     /**
