@@ -1,7 +1,7 @@
 <footer class="blog-footer">
 	<p>
-		Blog template built for <a href="http://getbootstrap.com">Bootstrap</a>
-		by <a href="https://twitter.com/mdo">@mdo</a>.
+		Blog built for <a href="http://getbootstrap.com">XMUT_keshe</a>
+		by <a href="http://a.yyoyyu.com/">AYOOYUU</a>.
 	</p>
 	<p>
 		<a href="#">Back to top</a>
@@ -13,5 +13,5 @@
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/js/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/Scripts.js"></script>
