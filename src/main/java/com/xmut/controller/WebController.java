@@ -15,10 +15,10 @@ public class WebController {
         return "index";  
     }  
     
-    @RequestMapping("/blog")
+    @RequestMapping("/admin")
     public String blog(ModelMap map){  
         map.put("title", "HelloWorld");  
-        return "blog";  
+        return "admin/main";  
     }  
       
 }  
