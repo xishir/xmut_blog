@@ -1,35 +1,37 @@
-package com.xmut.controller;
+package com.xmut.controller.api;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xmut.pojo.UserInfo;
-import com.xmut.service.MybatisService;
+import com.xmut.service.UserService;
+
+import io.swagger.annotations.Api;
 
 
-@RequestMapping("/mybatis")
+@RequestMapping("/api/user")
 @RestController
-public class MybatisController {
+@Api(value = "web", description = "user")
+public class UserController {
 
     @Autowired
-    private MybatisService service;
+    private UserService service;
 
     /**
      * 更新用户信息
      * @param user_id 用户ID
      * @param nickName 昵称
      */
-    @PutMapping("/updateUser/{id}")
+    @GetMapping("/updateUser/{id}")
     public void updateUser(@PathVariable("id") String user_id, @RequestParam("nickName") String nickName){
         service.updateUser(user_id,nickName);
     }
@@ -43,12 +45,21 @@ public class MybatisController {
     public UserInfo getUser(@PathVariable("id")  Integer id){
         return service.getUser(id);
     }
+    
+    /**
+     * 获取所有用户信息
+     * @return
+     */
+    @GetMapping("/getUsers")
+    public ArrayList<UserInfo> getUsers(){
+        return service.getUsers();
+    }
 
     /**
      * 删除用户
      * @param tel
      */
-    @DeleteMapping("/deleteUserByUserId/{tel}")
+    @GetMapping("/deleteUserByUserId/{tel}")
     public void deleteUserByUserId(@PathVariable("tel")  String tel){
         UserInfo user  = new UserInfo();
         user.setTel(tel);

@@ -1,30 +1,38 @@
 package com.xmut.service;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.xmut.dao.UserInfoMapper;
+import com.xmut.dao.UserMapper;
 import com.xmut.pojo.UserInfo;
 
 @Service
 public class UserService {
 
     @Autowired
-    UserInfoMapper userInfoMapper;
+    private UserMapper userMapper;
 
-    public void createUser(String tel,String pwd) {
-        userInfoMapper.createUser(tel,pwd);
+
+    public void updateUser(String user_id, String nickName) {
+    	userMapper.updateUser(user_id,nickName);
     }
 
     public UserInfo getUser(Integer id) {
-        return userInfoMapper.getUser(id);
+        return userMapper.getUser(id);
+    }
+    
+    public ArrayList<UserInfo> getUsers() {
+        return userMapper.getUsers();
     }
 
-    public void updateUser(String user_id, String nickName) {
-        userInfoMapper.updateUser(user_id,nickName);
+    public void deleteUserByUserId(UserInfo userInfo) {
+    	userMapper.deleteUserByUserId(userInfo);
     }
 
-    public void deleteUserByUserId(Integer id) {
-        userInfoMapper.deleteUserByUserId(id);
+    public void createUser(Map<String, Object> reqMap) {
+    	userMapper.createUser(reqMap);
     }
 }

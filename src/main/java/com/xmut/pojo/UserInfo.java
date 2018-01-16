@@ -20,14 +20,6 @@ public class UserInfo implements Serializable{
     public UserInfo() {
     }
 
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-                "tel='" + tel + '\'' +
-                ", nickName='" + nickName + '\'' +
-                ", passWord='" + passWord + '\'' +
-                '}';
-    }
 
     public UserInfo(String tel, String nickName, String passWord) {
         this.tel = tel;
