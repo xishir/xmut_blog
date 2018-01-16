@@ -3,6 +3,8 @@ package com.xmut.controller.api;
 import java.util.ArrayList;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -79,12 +81,16 @@ public class UserController {
     	System.out.println(reqMap);
         service.createUser(reqMap);
     }
-
+    
+    /**
+     * 登录
+     * @param map
+     * @return
+     */
     @PostMapping("/logincheck")
-    public String logcheck(ModelMap map){  
-//    	Map datamap=new HashMap<String, Object>();
-//    	datamap.put("msg", "200");
-    	System.out.println("ccc1!");
-        return "OK";
+    public Msg logcheck(@RequestBody Map<String,Object> reqMap,HttpSession session){
+    	System.out.println(session.getAttribute("isLogin"));
+    	session.setAttribute("isLogin", 1);
+        return Result.success(session.getAttribute("isLogin"));
     }  
 }
