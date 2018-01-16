@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.xmut.pojo.UserInfo;
 import com.xmut.service.UserService;
+import com.xmut.util.Msg;
+import com.xmut.util.Result;
 
 import io.swagger.annotations.Api;
 
@@ -42,8 +44,8 @@ public class UserController {
      * @return
      */
     @GetMapping("/getUser/{id}")
-    public UserInfo getUser(@PathVariable("id")  Integer id){
-        return service.getUser(id);
+    public Msg getUser(@PathVariable("id")  Integer id){
+        return Result.success(service.getUser(id));
     }
     
     /**
@@ -51,8 +53,8 @@ public class UserController {
      * @return
      */
     @GetMapping("/getUsers")
-    public ArrayList<UserInfo> getUsers(){
-        return service.getUsers();
+    public Msg getUsers(){
+        return Result.success(service.getUsers());
     }
 
     /**
@@ -62,7 +64,7 @@ public class UserController {
     @GetMapping("/deleteUserByUserId/{tel}")
     public void deleteUserByUserId(@PathVariable("tel")  String tel){
         UserInfo user  = new UserInfo();
-        user.setTel(tel);
+        //user.setTel(tel);
         service.deleteUserByUserId(user);
     }
 

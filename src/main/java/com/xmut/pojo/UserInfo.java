@@ -2,52 +2,61 @@ package com.xmut.pojo;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 
 public class UserInfo implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
-    private String tel;
+    private String user_id;
+    private String user_name;
+    private String user_password;
 
-    private String nickName;
 
-    @Max(value = 999999,message = "超过最大数值")
-    @Min(value = 000000,message = "密码设定不正确")
-    private String passWord;
 
     public UserInfo() {
     }
 
 
-    public UserInfo(String tel, String nickName, String passWord) {
-        this.tel = tel;
-        this.nickName = nickName;
-        this.passWord = passWord;
+    public UserInfo(String user_id, String user_name, String user_password) {
+        this.user_id = user_id;
+        this.user_name = user_name;
+        this.user_password = user_password;
     }
 
-    public String getTel() {
-        return tel;
-    }
 
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
+	public String getUser_id() {
+		return user_id;
+	}
 
-    public String getNickName() {
-        return nickName;
-    }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 
-    public String getPassWord() {
-        return passWord;
-    }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
-    }
+	public String getUser_name() {
+		return user_name;
+	}
+
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+
+	public String getUser_password() {
+		return user_password;
+	}
+
+
+	public void setUser_password(String user_password) {
+		this.user_password = user_password;
+	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+    
 }

@@ -21,7 +21,7 @@ public interface UserMapper {
     @Select("select tel,nickname,password FROM blog.k_user WHERE user_id = #{user_id}")
     UserInfo getUser(@Param("user_id") Integer user_id);
     
-    @Select("select tel,nickname,password FROM blog.k_user ")
+    @Select("select * FROM blog.k_user ")
     ArrayList<UserInfo> getUsers();
 
     @Update("UPDATE blog.k_user SET user_name = #{user_name},user_password=#{user_password} WHERE user_id = #{user_id}")
