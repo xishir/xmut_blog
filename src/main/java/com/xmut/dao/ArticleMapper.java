@@ -10,19 +10,20 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.xmut.pojo.UserInfo;
+import com.xmut.pojo.ArticleInfo;
+import com.xmut.pojo.TagInfo;
 
 public interface ArticleMapper {
 	
 
-	@Insert("INSERT INTO blog.k_article VALUES (#{title},#{author},#{sort},#{time},#{star},#{visit},#{content})")
+	@Insert("INSERT INTO blog.k_article VALUES (#{title},#{author},#{sort},#{time},#{content})")
     void createarticle(Map<String, Object> reqMap);
 	
-	@Update("UPDATE blog.k_article SET visit = #{visit}+1 WHERE id = #{id}")
-    void addVisit(@Param("visit") String visit, @Param("id") String id);
+	@Update("UPDATE blog.k_article SET visit = visit+1 WHERE id = #{id}")
+    void addVisit(@Param("id") String id);
 	
-	@Update("UPDATE blog.k_article SET star = #{star}+1 WHERE id = #{id}")
-    void addStar(@Param("star") String star, @Param("id") String id);
+	@Update("UPDATE blog.k_article SET star = star+1 WHERE id = #{id}")
+    void addStar( @Param("id") String id);
 	
 	@Update("UPDATE blog.k_article SET title = #{title} WHERE id = #{id}")
     void UpdataTitle(@Param("title") String title, @Param("id") String id);
@@ -35,4 +36,16 @@ public interface ArticleMapper {
 	
 	@Update("UPDATE blog.k_article SET title = #{title},author = #{author},sort = #{sort},content = #{content} WHERE id = #{id}")
     void UpdataArticle(@Param("title") String title,@Param("author") String author,@Param("sort") String sort,@Param("content") String content, @Param("id") String id);
+	
+	@Select("select * FROM blog.k_article WHERE id = #{id}")
+	ArticleInfo getArticle(@Param("id") String id);
+    
+    @Select("select * FROM blog.k_article ")
+    ArrayList<ArticleInfo> getArticles();
+    
+    @Select("select distinct(sort) FROM blog.k_article ")
+    ArrayList<TagInfo> getSort();
+    
+    @Delete("DELETE FROM blog.k_article WHERE id = #{id}")
+    void deleteArticleById(ArticleInfo articleinfo);
 }

@@ -16,7 +16,7 @@ public class UserServiceTest {
 	@Test
 	public void test()
 	{
-		userservice.updateUser("2", "2", "2");
+		userservice.updateUser("2", "3", "3");
 	}
 
 }
