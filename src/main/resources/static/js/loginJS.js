@@ -12,9 +12,7 @@ $(function () {
       success: function (msg) {
         if (msg.code == "200") {
           //登录成功
-          $(location).attr('href', '/index');
-          $(window).attr('location', '/index');
-          $(location).prop('href', '/index');
+          window.location.href="/admin"; 
         }
         else {
           //登录失败

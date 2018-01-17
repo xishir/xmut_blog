@@ -96,4 +96,15 @@ public class UserController {
     	}
     	return Result.error(500,"账号或密码错误");  
     }  
+    
+    /**
+     * 注销
+     * @param map
+     * @return
+     */
+    @GetMapping("/logout")
+    public Msg logcheck(HttpSession session){
+    	session.removeAttribute("isLogin");
+    	return Result.success();
+    }  
 }

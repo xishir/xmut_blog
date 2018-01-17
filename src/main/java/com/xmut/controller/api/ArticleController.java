@@ -53,4 +53,5 @@ public class ArticleController {
     public Msg getInfo(@PathVariable("id")  Integer id){
         return Result.success(service.getInfo(id.toString()));
     }
+
 }

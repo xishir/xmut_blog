@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xmut.pojo.UserInfo;
+import com.xmut.service.ArticleService;
 import com.xmut.service.UserService;
 import com.xmut.util.Msg;
 import com.xmut.util.Result;
@@ -31,6 +32,9 @@ public class AdminController {
 
     @Autowired
     private UserService service;
+    
+    @Autowired
+    private ArticleService articleService;
 
     /**
      * 登录
@@ -42,5 +46,15 @@ public class AdminController {
     	System.out.println(session.getAttribute("isLogin"));
     	session.setAttribute("isLogin", 1);
         return Result.success(session.getAttribute("isLogin"));
-    }    
+    }   
+    
+    /**
+     * 添加文章
+     * @return
+     */
+    @PostMapping("/article/create")
+    public Msg create(@RequestBody Map<String,Object> reqMap){
+    	System.out.println("添加文章");
+        return Result.success(articleService.createArticle(reqMap));
+    }
 }

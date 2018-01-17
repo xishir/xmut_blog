@@ -43,10 +43,12 @@ public class MyFilter implements Filter {
         else {
         	if(req.getHeader("Accept").indexOf("text/html")!=-1)
         	{
-        		reps.setStatus(1024);
+        		req.getRequestDispatcher("/login").forward(req, reps);
         	}
-        	System.out.println(reps.getStatus());
-        	req.getRequestDispatcher("/error").forward(req, reps);
+        	else {
+        		System.out.println(reps.getStatus());
+            	req.getRequestDispatcher("/error").forward(req, reps);
+        	}
         }
     }
 
