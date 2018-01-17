@@ -89,12 +89,11 @@ public class UserController {
      */
     @PostMapping("/logincheck")
     public Msg logcheck(@RequestBody Map<String,Object> reqMap,HttpSession session){
-    	return Result.success();
-//    	if(service.checkLogin(reqMap))
-//    	{
-//    		session.setAttribute("isLogin", 1);
-//    		return Result.success();
-//    	}
-//    	return Result.error(500,"账号或密码错误");  
+    	if(service.checkLogin(reqMap))
+    	{
+    		session.setAttribute("isLogin", 1);
+    		return Result.success();
+    	}
+    	return Result.error(500,"账号或密码错误");  
     }  
 }

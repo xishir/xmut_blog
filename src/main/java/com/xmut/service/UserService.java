@@ -35,4 +35,11 @@ public class UserService {
     public void createUser(Map<String, Object> reqMap) {
     	userMapper.createUser(reqMap);
     }
+    
+    public boolean checkLogin(Map<String, Object> reqMap){
+    	if(userMapper.checkLogin(reqMap).equals(reqMap.get("user_name")))
+    		return true;
+    	else
+    		return false;
+    }
 }
