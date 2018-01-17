@@ -3,6 +3,8 @@ package com.xmut.controller.api;
 import java.util.ArrayList;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,8 +38,9 @@ public class AdminController {
      * @return
      */
     @PostMapping("/logincheck")
-    public Msg logcheck(@RequestBody Map<String,Object> reqMap){
-    	System.out.println(reqMap.get("username"));
-        return Result.success(reqMap);
-    }  
+    public Msg logcheck(@RequestBody Map<String,Object> reqMap,HttpSession session){
+    	System.out.println(session.getAttribute("isLogin"));
+    	session.setAttribute("isLogin", 1);
+        return Result.success(session.getAttribute("isLogin"));
+    }    
 }

@@ -26,6 +26,10 @@ public class FinalExceptionHandler implements ErrorController {
     	Integer code=resp.getStatus();
     	if(code==404)
     		return Result.error(code, "404 Not Found");
+    	if(code==1024)
+    		return Result.error(500, "请登陆");
+    	if(code==200)
+    		resp.setStatus(500);
     	return Result.error(code, "服务器错误");
     }
 }
