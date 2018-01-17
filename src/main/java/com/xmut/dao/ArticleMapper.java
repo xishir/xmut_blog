@@ -13,6 +13,7 @@ import org.apache.ibatis.annotations.Update;
 import com.xmut.pojo.ArticleInfo;
 import com.xmut.pojo.TagInfo;
 
+@Mapper
 public interface ArticleMapper {
 	
 
