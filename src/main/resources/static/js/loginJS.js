@@ -24,18 +24,4 @@ $(function () {
     });
     return false;
   });
-  $("#Arc-list li a").click(function(){
-    // datas={id:1};
-    $.ajax({
-      url: "/api/article/info/"+id,
-      type: "Get",
-      // data: JSON.stringify(datas),
-      success: function (msg) {
-        
-      },
-    });
-  });
-  function getArchives(){
-
-  }
 })

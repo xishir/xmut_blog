@@ -25,5 +25,5 @@
   </div>
 </body>
 <#include "../footer.ftl">
-
+<script src="/js/loginJS.js"></script>
 </html>

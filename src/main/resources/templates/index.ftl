@@ -4,7 +4,6 @@
   <head>
   	<#include "header.ftl"> 
     <link href="/css/blog.css" rel="stylesheet">
-    <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
   </head>
   <body>
 
@@ -135,6 +134,6 @@
 
     </div><!-- /.container -->
     <#include "footer.ftl"> 
-    
+    <script src="/js/indexJS.js"></script>
   </body>
 </html>
