@@ -15,7 +15,7 @@ public class ArticleService {
     private ArticleMapper articleMapper;
 
     public ArrayList<ArticleInfo> getList(Integer page) {
-    	
+    	System.out.println("调用getArticles");
         return articleMapper.getArticles();
     }
     
