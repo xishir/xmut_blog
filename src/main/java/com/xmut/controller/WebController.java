@@ -31,5 +31,11 @@ public class WebController {
         return "admin/login";  
     }  
     
+    @RequestMapping("/Archive")
+    public String Archive(ModelMap map){  
+        map.put("title", "Archive");  
+        return "Archive";  
+    }  
+    
       
 }  

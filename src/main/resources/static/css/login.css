@@ -53,3 +53,13 @@ body {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+/*
+ * Modal
+ */
+
+#myModal{
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}

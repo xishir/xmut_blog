@@ -15,8 +15,7 @@ $(function () {
           window.location.href="/admin"; 
         }
         else {
-          //登录失败
-          // console.log(msg);
+          $('#myModal').modal("toggle");
         }
       },
     });
