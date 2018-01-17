@@ -37,7 +37,8 @@ public class UserService {
     }
     
     public boolean checkLogin(Map<String, Object> reqMap){
-    	if(userMapper.checkLogin(reqMap).equals(reqMap.get("user_name")))
+    	System.out.println("检查用户名密码");
+    	if(userMapper.checkLogin(reqMap)>0)
     		return true;
     	else
     		return false;

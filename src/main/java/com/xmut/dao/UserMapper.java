@@ -30,6 +30,6 @@ public interface UserMapper {
     @Delete("DELETE FROM blog.k_user WHERE user_id = #{user_id}")
     void deleteUserByUserId(UserInfo userInfo);
     
-    @Select("select user_name FROM blog.k_user where user_name = #{user_name},user_password=md5(#{user_password})")
-    String checkLogin(Map<String, Object> reqMap);
+    @Select("select count(*) FROM blog.k_user where user_name=#{user_name} and user_password=md5(#{user_password})")
+    Integer checkLogin(Map<String, Object> reqMap);
 }
