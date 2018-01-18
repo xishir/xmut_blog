@@ -23,6 +23,9 @@ public interface TagMapper {
 	@Select("select distinct(tag) FROM blog.k_tag ")
     ArrayList<TagInfo> getSort();
 	
+	@Select("select tag FROM blog.k_tag where id=#{id}")
+	TagInfo getTag(@Param("id") String id);
+	
 	@Update("UPDATE blog.k_tag SET tag = #{tag} WHERE id = #{id}")
     void updataTag(@Param("tag") String tag,@Param("id") String id);
 
