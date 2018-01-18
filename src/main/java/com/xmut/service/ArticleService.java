@@ -138,7 +138,7 @@ public class ArticleService {
     	articleMapper.deleteArticleById(id);
     }
     
-    public int getArticlePage()
+    public int getPageNum()
     {
     	String num=articleMapper.getPageNum();
     	return Integer.parseInt(num)/10+1;
