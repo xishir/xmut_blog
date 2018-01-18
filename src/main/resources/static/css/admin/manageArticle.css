@@ -1,0 +1,17 @@
+#search{
+	float:right;
+	width:100px;
+}
+#searchContent {
+	float:right;
+	width:200px;
+	margin-right:5px;
+}
+#createArticle{
+	float:left;
+	width:100px;
+	margin-right:5px;
+}
+#blog-table-tr th{
+	
+}

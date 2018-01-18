@@ -29,6 +29,7 @@ public class ArticleService {
     }
     
     public ArticleInfo getInfo(String id) {
+    	System.out.println("aaa");
     	articleMapper.addVisit(id);
         return articleMapper.getArticle(id);
     }

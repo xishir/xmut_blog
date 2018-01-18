@@ -1,35 +1,26 @@
 $(function () {
-	function getNowFormatDate() {
-	    var date = new Date();
-	    var seperator1 = "-";
-	    var seperator2 = ":";
-	    var month = date.getMonth() + 1;
-	    var strDate = date.getDate();
-	    var strHours = date.getHours();
-	    var strSeconds = date.getSeconds();
-	    var strMinutes = date.getMinutes();
-	    if (month >= 1 && month <= 9) {
-	        month = "0" + month;
-	    }
-	    if (strDate >= 0 && strDate <= 9) {
-	        strDate = "0" + strDate;
-	    }
-	    if (strHours >= 0 && strHours <= 9) {
-	    	strHours = "0" + strHours;
-	    }
-	    if (strMinutes >= 0 && strMinutes <= 9) {
-	    	strMinutes = "0" + strMinutes;
-	    }
-	    if (strSeconds >= 0 && strSeconds <= 9) {
-	    	strSeconds = "0" + strSeconds;
-	    }
-	    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
-	            + " " + strHours + seperator2 + strMinutes
-	            + seperator2 + date.getSeconds();
-	    return currentdate;
-	}
-	var times=getNowFormatDate();
-	$("#times").val(times);
+	var articleId=$("#articleId").val();
+	$.ajax({
+        url: "/api/article/info/"+articleId,
+        type: "GET",
+        dataType: "json",
+        success: function(msg) {
+            if (msg.code == "200") {
+            	console.log(msg);
+            	$("#title").val(msg.data.title);
+                $("#tags").val(msg.data.sort);
+                $("#times").val(msg.data.time);
+                $("#times").val(msg.data.time);
+                $("#articleContent").text(msg.data.content);
+            } else {//登录失败
+            // console.log(msg);
+            }
+        },
+    });
+	
+	
+	
+	
 var testEditor;
 
     testEditor = editormd("test-editormd", {

@@ -1,0 +1,23 @@
+#createArticle{
+	float:right;
+	width:100px;
+}
+#noCreateArticle{
+	float:right;
+	width:100px;
+	margin-left:10px;
+}
+#title{
+	margin-bottom:5px;
+	float:left;
+}
+#tags{
+	width:80%;
+	float:left;
+	margin-bottom:5px;
+}
+#times{
+	width:19%;
+	float:right;
+	margin-bottom:5px;
+}
