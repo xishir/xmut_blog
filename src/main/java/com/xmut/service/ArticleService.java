@@ -31,6 +31,20 @@ public class ArticleService {
         return articleMapper.getArticles_Hot();
     }
     
+    public ArticleInfo getFrontBehindID(String id) {
+    	ArticleInfo article=articleMapper.getArticle(id);
+    	System.out.println("调用getFrontBehindID");
+    	String frontid=articleMapper.getFrontID(id);
+    	String behindid=articleMapper.getBehindID(id);
+    	if(frontid==null)
+    		frontid=id;
+    	if(behindid==null)
+    		behindid=id;
+    	article.setFrontid(frontid);
+    	article.setBehindid(behindid);
+        return article;
+    }
+    
     public ArticleInfo getInfo(String id) {
     	articleMapper.addVisit(id);
         return articleMapper.getArticle(id);
