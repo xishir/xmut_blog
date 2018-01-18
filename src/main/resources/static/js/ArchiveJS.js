@@ -1,75 +1,71 @@
 $(function(){
-  var Archives;                             //文章
+  var currentArchive;                       //当前文章
+  var PopArchives;                          //热门文章
   var currentArchID=$("#hide").text();      //当前显示文章的ID
   var index;                                //当前显示文章的索引
   //初始化
   init();
   function init(){
-    getArchives(1);
+    getCurrentArchives();
+    getPopArchives(1);
   }
-  //得到文章内容
-  function getArchives(page){
+  //得到当前文章内容
+  function getCurrentArchives(){
+    $.ajax({
+      url:"/api/article/info/"+currentArchID,
+      type:"GET",
+      success:function(data){
+        currentArchive=data.data;
+        putArch();
+        getTargetArchives();
+      }
+    });
+  }
+  //得到热门文章内容
+  function getPopArchives(page){
     $.ajax({
       url:"/api/article/list/"+page,
       type:"Get",
       
       success:function(data){
-        Archives=data.data;
-        index=findArchbyID(currentArchID);
-        var i;
-        if(index<5){
-          i=0;
-          for(;i<index+10&&i<Archives.length;i++){
-            $("#Arc-list").append("<li><a>"+Archives[i].title+"</a></li>");
-          }
-        }
-        else {
-          i=index-5;
-          for(;i<index+5&&i<Archives.length;i++){
-            $("#Arc-list").append("<li><a>"+Archives[i].title+"</a></li>");
-          }
+        PopArchives=data.data;
+        console.log(PopArchives);
+        for(var i=0;i<PopArchives.length;i++){
+          $("#Arc-list").append("<li><a>"+PopArchives[i].title+"</a></li>");
         }
         bind();
-        getTargetArchives();
       }
     });
   }
   //跳转目标文章
   function getTargetArchives(){
-    putArch(index);
+    putArch();
   }
   //绑定点击事件
   function bind(){
     $("#Arc-list li a").click(function(){
       var resT=findArchbyTitle(this.innerHTML);
-      window.location.href="/Archive/"+Archives[resT].id;
+      window.location.href="/Archive/"+PopArchives[resT].id;
     });
     $("#Previous").click(function(){
-      if(index>=0)window.location.href="/Archive/"+Archives[--index].id;
+      window.location.href="/Archive/"+currentArchive.id;
     });
     $("#Next").click(function(){
-      if(index<Archives.length-1)window.location.href="/Archive/"+Archives[++index].id;
+      window.location.href="/Archive/"+currentArchive.id;
     });
   }
   //显示选定的文章
-  function putArch(resT){
-    $(".blog-post-title").text(Archives[resT].title);
-    $(".blog-post-meta").text(Archives[resT].time);
-    $(".blog-post-meta").append(" by <a>"+Archives[resT].author+"</a>");
-    $(".blog-content").text(Archives[resT].content);
+  function putArch(){
+    $(".blog-post-title").text(currentArchive.title);
+    $(".blog-post-meta").append(currentArchive.time.substring(0,10));
+    $(".blog-post-meta").append(" by <a>"+currentArchive.author+"</a>");
+    $(".blog-content").text(currentArchive.content);
+
   }
   //根据标题查找文章
   function findArchbyTitle(tempT){
-    for(var i=0;i<Archives.length;i++){
-      if(Archives[i].title==tempT){
-        return i;
-      }
-    }
-  }
-  //根据ID查找文章
-  function findArchbyID(tempT){
-    for(var i=0;i<Archives.length;i++){
-      if(Archives[i].id==tempT){
+    for(var i=0;i<PopArchives.length;i++){
+      if(PopArchives[i].title==tempT){
         return i;
       }
     }
