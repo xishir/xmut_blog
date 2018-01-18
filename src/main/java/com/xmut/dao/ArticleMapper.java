@@ -17,7 +17,7 @@ import com.xmut.pojo.TagInfo;
 public interface ArticleMapper {
 	
 
-	@Insert("INSERT INTO blog.k_article (title,author,sort,content) VALUES (#{title},#{author},#{sort},#{content})")
+	@Insert("INSERT INTO blog.k_article (title,author,sort,time,content) VALUES (#{title},#{author},#{sort},#{time},#{content})")
     void createArticle(Map<String, Object> reqMap);
 	
 	@Update("UPDATE blog.k_article SET visit = visit+1 WHERE id = #{id}")
