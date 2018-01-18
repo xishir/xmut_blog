@@ -43,24 +43,19 @@
     </div>
 
     <div class="container" style="width:90%;padding:0px;margin-top:10px;min-height:500px;">
-    <div class="blog-post-title"><h3>Manage Article</h3>
-    <a href="/admin/createArticle"><button type="button" class="btn"  style="color: #fff;background-color: #337ab7;border-color: #2e6da4;" id="createArticle">Create</button></a>
-      <!-- Standard button -->
-		<button type="button" class="btn" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;" id="search">提交</button>
-      <input type="text" class="form-control" id="searchContent" placeholder="请输入关键字" >
-      </div>
+    <div class="blog-post-title"><h3>Manage Comment</h3></div>
 	  
       <table class="table table-hover">
       <thead>
         <tr id="blog-table-tr">
           <th style="width:5%;"></th>
-          <th style="width:40%;">标题</th>
-          <th style="width:15%;">作者</th>
+          <th style="width:20%;">作者</th>
+          <th style="width:50%;">内容</th>
           <th style="width:10%;">日期</th>
           <th style="width:25%;">操作</th>
         </tr>
       </thead>
-      <tbody id="articleBody">
+      <tbody id="CommentBody">
         
       </tbody>
     </table>

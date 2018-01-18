@@ -143,6 +143,12 @@ public class ArticleService {
     	String num=articleMapper.getPageNum();
     	return (Integer.parseInt(num)/10)+1;
     }
+    
+    public int getArticleNum()
+    {
+    	String num=articleMapper.getPageNum();
+    	return Integer.parseInt(num);
+    }
     //增加评论数
     public void addComment(String id)
     {

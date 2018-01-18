@@ -21,6 +21,12 @@ public interface CommentMapper {
 	@Select("select * FROM blog.k_comment where article_id=#{article_id} order by time desc")
     ArrayList<CommentInfo> getComments(@Param("article_id") String article_id);
 	
+	@Select("select comment.id,article_id,title,nickname,comment.content,comment.time,comment.star,diss FROM blog.k_comment comment,blog.k_article article where article_id=article.id order by time desc")
+    ArrayList<CommentInfo> getAllComments();
+	
+	@Select("select count(*) FROM blog.k_comment")
+	String getCommentNum();
+	
 	@Update("UPDATE blog.k_comment SET star = star+1 WHERE id = #{id}")
     void addStar(@Param("id") String id);
 	
@@ -28,5 +34,5 @@ public interface CommentMapper {
     void addDiss( @Param("id") String id);
 	
 	@Delete("DELETE FROM blog.k_comment WHERE id = #{id}")
-    void deleteCommentById(CommentInfo commentinfo);
+    void deleteCommentById(@Param("id") String id);
 }

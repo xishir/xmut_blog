@@ -3,7 +3,7 @@ $(function () {
 	function getPageNum()
 	{
 		$.ajax({
-	        url: "/api/article/pageNum",
+	        url: "/api/comment/pageNum",
 	        type: "GET",
 	        async: false,
 	        success: function(msg) {
@@ -17,40 +17,37 @@ $(function () {
 	}
 	getPageNum();
 	
-	function getArticle(page)
+	function getComment(page)
 	{
-		console.log("/api/article/list/"+page);
+		console.log("/api/comment/lists/"+page);
 		$.ajax({
-	        url: "/api/article/list/"+page,
+	        url: "/api/comment/lists/"+page,
 	        type: "GET",
 	        contentType: 'application/json; charset=UTF-8',
 	        dataType: "json",
 	        success: function(msg) {
 	        	console.log(msg);
 	            if (msg.code == "200") {
-	                //登录成功
 	            	var result='';
-	            	var Archives=msg.data;
-	            	var leng=Archives.length;
+	            	var Comments=msg.data;
+	            	var leng=Comments.length;
 	            	for(var i=0;i<leng;i++){
 	            		result+=
 	            		'<tr>\
 				          <th scope="row">'+(i+1)+'</th>\
-				          <td>'+Archives[i].title+'</td>\
-				          <td>'+Archives[i].author+'</td>\
-				          <td>'+Archives[i].time.substring(0,10)+'</td>\
+				          <td>'+Comments[i].nickname+'</td>\
+				          <td>在<a href="/Archive/'+Comments[i].article_id+'">'+Comments[i].title+'</a>中评论:<br>'+Comments[i].content+'</td>\
+				          <td>'+Comments[i].time.substring(0,10)+'</td>\
 				          <td>\
-				          <a href="/Archive/'+Archives[i].id+'"><button type="button" class="btn btn-success">预览</button></a>\
-				          <a href="/admin/editArticle/'+Archives[i].id+'"<button type="button" class="btn btn-warning">编辑</button></a>\
-				          <button type="button" class="btn btn-danger delArticle" data="'+Archives[i].id+'">删除</button>\
+				          <button type="button" class="btn btn-danger delComment" data="'+Comments[i].id+'">删除</button>\
 				          </td>\
 				        </tr>';		
 	            	}
-	            	$("#articleBody").html('');
-	                $("#articleBody").append(result);
+	            	$("#CommentBody").html('');
+	                $("#CommentBody").append(result);
 	                setPageCtrl(page,pageNum);
-	                $(".delArticle").click(function() {
-	                	delArticle($(this).attr('data'));
+	                $(".delComment").click(function() {
+	                	delComment($(this).attr('data'));
 	        		});
 	            } else {//登录失败
 	            // console.log(msg);
@@ -59,16 +56,15 @@ $(function () {
 	    });
 	}
 	
-	function delArticle(id)
+	function delComment(id)
 	{
 		$('#modalTextTitle').text('提示');
-		$('#modalTextContent').text('确定删除本篇文章？');
+		$('#modalTextContent').text('确定删除本篇评论？');
 		$('#modalText').modal('toggle');	
 		$('#modalTextOk').click(function() {
 			$('#modalText').modal('hide');
-			alert(1);
 			$.ajax({
-		        url: "/api/admin/article/del/"+id,
+		        url: "/api/admin/comment/del/"+id,
 		        type: "GET",
 		        async: false,
 		        success: function(msg) {
@@ -105,14 +101,14 @@ $(function () {
 		$("#pageCtrl").html('');
 		$("#pageCtrl").append(result);
 		$(".pages").click(function() {
-			getArticle($(this).attr('data'));
+			getComment($(this).attr('data'));
 		});
 	}
-	getArticle(1);
+	getComment(1);
 	
 
 
-$("#noCreateArticle").click(function() {
+$("#noCreateComment").click(function() {
 	window.history.back();
 });
 

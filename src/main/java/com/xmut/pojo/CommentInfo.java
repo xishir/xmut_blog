@@ -13,6 +13,7 @@ public class CommentInfo implements Serializable{
     private String time;
     private String star;
     private String diss;
+    private String title;
     
     public CommentInfo() {
 	}
@@ -76,6 +77,16 @@ public class CommentInfo implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	
     
 
 }

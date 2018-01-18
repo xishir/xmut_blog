@@ -12,13 +12,14 @@
 	width:100px;
 	margin-right:5px;
 }
-#articleBody td,#articleBody th{
-	line-height:40px;
-	height:40px;
+#commentBody td,#commentBody th{
+	line-height:50px;
+	height:50px;
 	margin:0px;
 	padding:0px;
+	background:red;
 }
-#articleBody .btn
+#commentBody .btn
 {
 	margin-left:10px;
 }

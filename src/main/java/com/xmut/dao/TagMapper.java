@@ -31,5 +31,8 @@ public interface TagMapper {
 	
 	@Update("UPDATE blog.k_tag SET tag = #{tag} WHERE id = #{id}")
     void updataTag(@Param("tag") String tag,@Param("id") String id);
+	
+	@Select("select count(*) FROM blog.k_tag ")
+    String getTagNum();
 
 }

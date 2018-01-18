@@ -45,6 +45,16 @@ public class CommentController {
     }
     
     /**
+     * 获取评论列表
+     * @param id 文章id
+     * @return
+     */
+    @GetMapping("/lists/{page}")
+    public Msg getAllList(@PathVariable("page")  String page){
+        return Result.success(service.getAllComments(page));
+    }
+    
+    /**
      * 添加评论
      * @return
      */
@@ -75,6 +85,15 @@ public class CommentController {
     public Msg getDiss(@PathVariable("id")  String id){
     	service.addDiss(id.toString());
         return Result.success();
+    }
+    
+    /**
+     * 获取页数
+     * @return
+     */
+    @GetMapping("/pageNum")
+    public Msg pageNum(){
+        return Result.success(service.getPageNum());
     }
 
 

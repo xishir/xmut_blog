@@ -13,8 +13,6 @@ import com.xmut.service.ArticleService;
 @Controller  
 @RequestMapping("/admin")  
 public class AdminController {  
-      
-	private ArticleService articleService;
 	 
     @RequestMapping  
     public String index(ModelMap map){  
