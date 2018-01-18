@@ -15,8 +15,22 @@ public class ArticleInfo implements Serializable{
     private String comment;
     private String visit;
     private String content;
+    private String frontid;
+    private String behindid;
     
-    public ArticleInfo(){
+    public String getFrontid() {
+		return frontid;
+	}
+	public void setFrontid(String frontid) {
+		this.frontid = frontid;
+	}
+	public String getBehindid() {
+		return behindid;
+	}
+	public void setBehindid(String behindid) {
+		this.behindid = behindid;
+	}
+	public ArticleInfo(){
     	
     }
     public ArticleInfo(String id,String title,String sort,String content) {

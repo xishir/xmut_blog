@@ -44,6 +44,12 @@ public interface ArticleMapper {
     @Select("select * FROM blog.k_article ")
     ArrayList<ArticleInfo> getArticles();
     
+    @Select("select id from blog.k_article where id<#{id} order by id desc limit 1")
+    String getFrontID(@Param("id") String id);
+    
+    @Select("select id from blog.k_article where id>#{id} order by id  limit 1")
+    String getBehindID(@Param("id") String id);
+    
     @Select("select * FROM blog.k_article order by time desc limit 10")
     ArrayList<ArticleInfo> getArticles_Hot();
     

@@ -43,8 +43,10 @@ public class ArticleService {
         strArray = tag.split(","); //拆分字符为"," ,然后把结果交给数组strArray 
     	articleMapper.createArticle(reqMap);
     	ArrayList<String> tagsort=tagmapper.getSort();
+    	int k=0;
     	for(int i=0;i<strArray.length;i++)
     	{
+    		k=0;
     		if(tagsort.size()==0)
     		{
     			tagmapper.createtag(strArray[i]);
@@ -57,15 +59,18 @@ public class ArticleService {
         			if(strArray[i].equals(tagsort.get(j)))
         			{
         				tagmapper.addNum(tagsort.get(j));
+        				k=1;
         				break;
         			}
-        			else 
-        				tagmapper.createtag(strArray[i]);
         			
         		}
+    			if(k==0)
+    			{
+    				tagmapper.createtag(strArray[i]);
+    			}
     		}
     	}   	
-    	return "success";
+    	return "success";	
     }
     
     //增加浏览数
