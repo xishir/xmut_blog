@@ -15,7 +15,7 @@ import com.xmut.pojo.CommentInfo;
 @Mapper
 public interface CommentMapper {
 
-	@Insert("INSERT INTO blog.k_comment VALUES (#{article_id},#{nickname},#{content},#{time},#{star},#{diss})")
+	@Insert("INSERT INTO blog.k_comment (article_id,nickname,content,time) VALUES (#{article_id},#{nickname},#{content},#{time})")
     void createcomment(Map<String, Object> reqMap);
 	
 	@Select("select * FROM blog.k_comment where article_id=#{article_id}")

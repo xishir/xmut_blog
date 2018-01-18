@@ -8,12 +8,14 @@ import org.springframework.stereotype.Service;
 
 import com.xmut.dao.CommentMapper;
 import com.xmut.pojo.CommentInfo;
+import com.xmut.util.TimeUtil;
 
 @Service
 public class CommentService {
 	@Autowired
 	private CommentMapper commentmapper;
 	public void  createcomment(Map<String, Object> reqMap) {
+		reqMap.put("time",TimeUtil.getTime());
 		commentmapper.createcomment(reqMap);
 		
 	}
