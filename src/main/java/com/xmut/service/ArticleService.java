@@ -133,7 +133,16 @@ public class ArticleService {
     	articleMapper.addStar(id);;
     }
     
+    public void deleteArticleById(String id)
+    {
+    	articleMapper.deleteArticleById(id);
+    }
     
+    public int getArticlePage()
+    {
+    	String num=articleMapper.getPageNum();
+    	return Integer.parseInt(num)/10+1;
+    }
     
     
 }

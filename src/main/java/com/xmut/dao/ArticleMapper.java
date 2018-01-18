@@ -56,6 +56,9 @@ public interface ArticleMapper {
     @Select("select distinct(sort) FROM blog.k_article ")
     ArrayList<TagInfo> getSort();
     
+    @Select("select count(*) FROM blog.k_article ")
+    String getPageNum();
+    
     @Delete("DELETE FROM blog.k_article WHERE id = #{id}")
-    void deleteArticleById(ArticleInfo articleinfo);
+    void deleteArticleById(@Param("id") String id);
 }
