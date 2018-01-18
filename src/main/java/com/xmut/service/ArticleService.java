@@ -21,6 +21,7 @@ public class ArticleService {
 
     public ArrayList<ArticleInfo> getList(Integer page) {
     	System.out.println("调用getArticles");
+    	PageHelper.startPage(page,10);
         return articleMapper.getArticles();
     }
     
