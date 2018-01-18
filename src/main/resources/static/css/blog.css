@@ -213,3 +213,12 @@ h6, .h6 {
 .glyphicon-thumbs-up{
   cursor: pointer;
 }
+.list-group h4,p,a{
+  word-break: break-all;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.list-group img{
+  width: 100%;
+}
