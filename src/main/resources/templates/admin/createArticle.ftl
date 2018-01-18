@@ -4,7 +4,7 @@
   <head>
   	<#include "../header.ftl"> 
     <link href="/css/blog.css" rel="stylesheet">
-    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/admin/main.css" rel="stylesheet">
     <link rel="stylesheet" href="/editormd/style.css" />
     <link rel="stylesheet" href="/editormd/css/editormd.css" />
     
@@ -52,41 +52,12 @@
 	  <div class="form-group">
 	    <input type="text" class="form-control" id="title" placeholder="文章标题">
 	  	<input type="text" class="form-control" id="tags" placeholder="标签,用英文逗号隔开">
-	  	<input type="text" class="form-control" id="times" placeholder="标签,用英文逗号隔开">
+	  	<input type="text" class="form-control" id="times" placeholder="发布时间">
 	  </div>
       <div id="test-editormd">
-                <textarea style="display:none;">[TOC]
+                <textarea style="display:none;">
+#### 0x00
 
-#### Disabled options
-
-- TeX (Based on KaTeX);
-- Emoji;
-- Task lists;
-- HTML tags decode;
-- Flowchart and Sequence Diagram;
-
-#### Editor.md directory
-
-    editor.md/
-            lib/
-            css/
-            scss/
-            tests/
-            fonts/
-            images/
-            plugins/
-            examples/
-            languages/     
-            editormd.js
-            ...
-
-```html
-&lt;!-- English --&gt;
-&lt;script src="../dist/js/languages/en.js"&gt;&lt;/script&gt;
-
-&lt;!-- 繁體中文 --&gt;
-&lt;script src="../dist/js/languages/zh-tw.js"&gt;&lt;/script&gt;
-```
 </textarea>
             </div>
       
@@ -95,8 +66,8 @@
 
     <#include "../footer.ftl"> 
     <script src="/editormd/editormd.min.js"></script>
-    <script src="/js/createArticle.js"></script>
-    <script src="/js/mainjs.js"></script>
+    <script src="/js/admin/createArticle.js"></script>
+    <script src="/js/admin/mainjs.js"></script>
     
   </body>
 </html>

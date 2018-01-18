@@ -55,15 +55,22 @@ $(function() {
                 */
 });
 $("#createArticle").click(function() {
-    alert(1);
+	if($("#title").val()==''||$("#tags").val()==''||$("#times").val()=='')
+	{
+		alert('请填写完整！');
+		return;
+	}
+
     //添加文章
-    //var datas = { "title": $("#inputUsername").val(), "user_password": $("#inputPassword").val() };
+    var datas = { "title": testEditor.getMarkdown(), "user_password": $("#inputPassword").val() };
     var datas = {
-        "title": "test",
-        "author": "aaaa",
-        "sort": "sort",
-        "content": "content"
+        "title": $("#title").val(),
+        "author": "admin",
+        "sort": $("#tags").val(),
+        "time": $("#times").val(),
+        "content": testEditor.getMarkdown()
     };
+    console.log(datas);
     $.ajax({
         url: "/api/admin/article/create",
         type: "POST",

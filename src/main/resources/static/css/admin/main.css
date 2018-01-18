@@ -46,7 +46,12 @@
 	float:left;
 }
 #tags{
-	width:70%;
+	width:80%;
 	float:left;
+	margin-bottom:5px;
+}
+#times{
+	width:19%;
+	float:right;
 	margin-bottom:5px;
 }
