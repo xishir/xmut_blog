@@ -57,7 +57,7 @@
           <th style="width:40%;">标题</th>
           <th style="width:15%;">作者</th>
           <th style="width:10%;">日期</th>
-          <th style="width:25%;">操作</th>
+          <th style="width:20%;">操作</th>
         </tr>
       </thead>
       <tbody id="articleBody">

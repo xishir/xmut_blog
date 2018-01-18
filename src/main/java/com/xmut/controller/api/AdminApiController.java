@@ -1,10 +1,12 @@
 package com.xmut.controller.api;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.xmut.service.ArticleService;
 import com.xmut.service.CommentService;
+import com.xmut.service.TagService;
 import com.xmut.service.UserService;
 import com.xmut.util.Msg;
 import com.xmut.util.Result;
@@ -34,6 +37,9 @@ public class AdminApiController {
     
     @Autowired
     private CommentService commentService;
+    
+    @Autowired
+    private TagService tagService;
 
     /**
      * 登录
@@ -88,4 +94,20 @@ public class AdminApiController {
     	commentService.deleteCommentById(id);
         return Result.success();
     }
+    
+    /**
+     * 主页数据
+     * @return
+     */
+    @GetMapping("/num")
+    public Msg index(){
+    	Map map=new HashMap();  
+    	map.put("articleNum", articleService.getArticleNum());
+    	map.put("commentNum", commentService.getCommentNum());
+    	map.put("tagNum", tagService.getTagNum());
+    	System.out.println("获取后台主页数据");
+        return Result.success(map);
+    }
+    
+    
 }

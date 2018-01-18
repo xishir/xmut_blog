@@ -27,5 +27,11 @@ public class TagService {
     public ArrayList<String> getSort(){
 		return tagmapper.getSort();  	
     }
+    
+    public Integer getTagNum()
+    {
+    	String num=tagmapper.getTagNum();
+    	return Integer.parseInt(num);
+    }
 	
 }
