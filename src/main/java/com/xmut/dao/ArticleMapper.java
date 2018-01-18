@@ -23,6 +23,9 @@ public interface ArticleMapper {
 	@Update("UPDATE blog.k_article SET visit = visit+1 WHERE id = #{id}")
     void addVisit(@Param("id") String id);
 	
+	@Update("UPDATE blog.k_article SET comment = comment+1 WHERE id = #{id}")
+    void addComment(@Param("id") String id);
+	
 	@Update("UPDATE blog.k_article SET star = star+1 WHERE id = #{id}")
     void addStar( @Param("id") String id);
 	
