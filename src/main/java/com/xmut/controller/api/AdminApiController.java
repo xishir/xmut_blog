@@ -5,12 +5,15 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xmut.service.ArticleService;
+import com.xmut.service.CommentService;
 import com.xmut.service.UserService;
 import com.xmut.util.Msg;
 import com.xmut.util.Result;
@@ -28,6 +31,9 @@ public class AdminApiController {
     
     @Autowired
     private ArticleService articleService;
+    
+    @Autowired
+    private CommentService commentService;
 
     /**
      * 登录
@@ -59,5 +65,27 @@ public class AdminApiController {
     public Msg edit(@RequestBody Map<String,Object> reqMap){
     	System.out.println("编辑文章");
         return Result.success(articleService.editArticle(reqMap));
+    }
+    
+    /**
+     * 删除文章
+     * @return
+     */
+    @GetMapping("/article/del/{id}")
+    public Msg del(@PathVariable("id")  String id){
+    	System.out.println("删除文章");
+    	articleService.deleteArticleById(id);
+        return Result.success();
+    }
+    
+    /**
+     * 删除评论
+     * @return
+     */
+    @GetMapping("/comment/del/{id}")
+    public Msg delComment(@PathVariable("id")  String id){
+    	System.out.println("删除评论");
+    	commentService.deleteCommentById(id);
+        return Result.success();
     }
 }

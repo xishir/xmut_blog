@@ -47,4 +47,10 @@ public class AdminController {
     	map.put("articleId", id);
         return "admin/editArticle";  
     } 
+    
+    @RequestMapping("/manageComment")
+    public String manageComment(ModelMap map){
+    	map.put("title", "manageComment");
+        return "admin/manageComment";  
+    } 
 }  

@@ -5,7 +5,7 @@
   	<#include "../header.ftl"> 
     <link href="/css/blog.css" rel="stylesheet">
     <link href="/css/admin/main.css" rel="stylesheet">
-    <link href="/css/admin/manageArticle.css" rel="stylesheet">
+    <link href="/css/admin/manageComment.css" rel="stylesheet">
     
   </head>
   <body>
@@ -107,7 +107,7 @@
 
     <#include "../footer.ftl"> 
 
-    <script src="/js/admin/manageArticle.js"></script>
+    <script src="/js/admin/manageComment.js"></script>
     <script src="/js/admin/mainjs.js"></script>
   </body>
 </html>

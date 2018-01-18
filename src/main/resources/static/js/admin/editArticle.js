@@ -1,9 +1,10 @@
 $(function () {
 	var articleId=$("#articleId").val();
+	var testEditor;
 	$.ajax({
         url: "/api/article/info/"+articleId,
         type: "GET",
-        synx:false,
+        async: false,
         dataType: "json",
         success: function(msg) {
             if (msg.code == "200") {
@@ -18,13 +19,7 @@ $(function () {
             }
         },
     });
-	
-	
-	
-	
-var testEditor;
-
-    testEditor = editormd("test-editormd", {
+	testEditor = editormd("test-editormd", {
         width: "100%",
         height: 640,
         syncScrolling: "single",
@@ -35,15 +30,6 @@ var testEditor;
         saveHTMLToTextarea: true
     });
 
-    /*
-                // or
-                testEditor = editormd({
-                    id      : "test-editormd",
-                    width   : "90%",
-                    height  : 640,
-                    path    : "/editormd/lib/"
-                });
-                */
 $("#createArticle").click(function() {
 	var $btn = $(this).button('loading');
 	if($("#title").val()==''||$("#tags").val()==''||$("#times").val()=='')

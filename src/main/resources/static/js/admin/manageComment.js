@@ -66,6 +66,7 @@ $(function () {
 		$('#modalText').modal('toggle');	
 		$('#modalTextOk').click(function() {
 			$('#modalText').modal('hide');
+			alert(1);
 			$.ajax({
 		        url: "/api/admin/article/del/"+id,
 		        type: "GET",
