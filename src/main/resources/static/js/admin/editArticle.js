@@ -62,7 +62,7 @@ $("#createArticle").click(function() {
     };
     console.log(datas);
     $.ajax({
-        url: "/api/admin/article/create",
+        url: "/api/admin/article/edit",
         type: "POST",
         data: JSON.stringify(datas),
         contentType: 'application/json; charset=UTF-8',

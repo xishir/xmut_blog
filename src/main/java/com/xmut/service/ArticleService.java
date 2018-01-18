@@ -84,6 +84,43 @@ public class ArticleService {
     	return "success";	
     }
     
+    public String editArticle(Map<String, Object> reqMap)
+    {
+    	String tag=(String) reqMap.get("sort");
+    	String[] strArray = null;   
+        strArray = tag.split(","); //拆分字符为"," ,然后把结果交给数组strArray 
+    	articleMapper.UpdataArticle(reqMap);
+    	ArrayList<String> tagsort=tagmapper.getSort();
+    	int k=0;
+    	for(int i=0;i<strArray.length;i++)
+    	{
+    		k=0;
+    		if(tagsort.size()==0)
+    		{
+    			tagmapper.createtag(strArray[i]);
+    			tagsort=tagmapper.getSort();
+    		}
+    		else
+    		{
+    			for(int j=0;j<tagsort.size();j++) 
+        		{
+        			if(strArray[i].equals(tagsort.get(j)))
+        			{
+        				tagmapper.addNum(tagsort.get(j));
+        				k=1;
+        				break;
+        			}
+        			
+        		}
+    			if(k==0)
+    			{
+    				tagmapper.createtag(strArray[i]);
+    			}
+    		}
+    	}   	
+    	return "success";	
+    }
+    
     //增加浏览数
     public void addVisit(String id)
     {

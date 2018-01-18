@@ -36,7 +36,7 @@ public interface ArticleMapper {
     void UpdataContent(@Param("content") String content, @Param("id") String id);
 	
 	@Update("UPDATE blog.k_article SET title = #{title},author = #{author},sort = #{sort},time=#{time},content = #{content} WHERE id = #{id}")
-    void UpdataArticle(@Param("title") String title,@Param("author") String author,@Param("sort") String sort,@Param("time") String time,@Param("content") String content, @Param("id") String id);
+    void UpdataArticle(Map<String, Object> reqMap);
 	
 	@Select("select * FROM blog.k_article WHERE id = #{id}")
 	ArticleInfo getArticle(@Param("id") String id);

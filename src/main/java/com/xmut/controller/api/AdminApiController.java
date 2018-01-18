@@ -50,4 +50,14 @@ public class AdminApiController {
     	System.out.println("添加文章");
         return Result.success(articleService.createArticle(reqMap));
     }
+    
+    /**
+     * 编辑文章
+     * @return
+     */
+    @PostMapping("/article/edit")
+    public Msg edit(@RequestBody Map<String,Object> reqMap){
+    	System.out.println("编辑文章");
+        return Result.success(articleService.editArticle(reqMap));
+    }
 }
