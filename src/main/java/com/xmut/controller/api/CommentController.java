@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.xmut.pojo.UserInfo;
 import com.xmut.service.ArticleService;
+import com.xmut.service.CommentService;
 import com.xmut.service.UserService;
 import com.xmut.util.Msg;
 import com.xmut.util.Result;
@@ -25,38 +26,38 @@ import com.xmut.util.Result;
 import io.swagger.annotations.Api;
 
 
-@RequestMapping("/api/article")
+@RequestMapping("/api/comment")
 @RestController
-@Api(value = "web", description = "article")
-public class ArticleController {
+@Api(value = "web", description = "comment")
+public class CommentController {
 
     @Autowired
-    private ArticleService service;
+    private CommentService service;
 
     /**
-     * 获取文章列表
-     * @param page 页数
-     * @return
-     */
-    @GetMapping("/list/{page}")
-    public Msg getList(@PathVariable("page")  Integer id){
-    	System.out.println("调用getList");
-        return Result.success(service.getList(id));
-    }
-    
-    /**
-     * 获取文章详情
+     * 获取评论列表
      * @param id 文章id
      * @return
      */
-    @GetMapping("/info/{id}")
-    public Msg getInfo(@PathVariable("id")  Integer id){
-        return Result.success(service.getInfo(id.toString()));
+    @GetMapping("/list/{id}")
+    public Msg getList(@PathVariable("id")  String id){
+        return Result.success(service.getComments(id));
+    }
+    
+    /**
+     * 添加评论
+     * @return
+     */
+    @PostMapping("/create")
+    public Msg create(@RequestBody Map<String,Object> reqMap){
+    	System.out.println("添加评论");
+    	service.createcomment(reqMap);
+        return Result.success();
     }
     
     /**
      * 点赞
-     * @param id 文章id
+     * @param id 评论id
      * @return
      */
     @GetMapping("/star/{id}")
@@ -66,12 +67,14 @@ public class ArticleController {
     }
     
     /**
-     * 获取页数
+     * Diss
+     * @param id 评论id
      * @return
      */
-    @GetMapping("/pageNum")
-    public Msg pageNum(){
-        return Result.success(service.getPageNum());
+    @GetMapping("/diss/{id}")
+    public Msg getDiss(@PathVariable("id")  String id){
+    	service.addDiss(id.toString());
+        return Result.success();
     }
 
 

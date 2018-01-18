@@ -18,6 +18,7 @@ public class CommentService {
 		
 	}
 	public ArrayList<CommentInfo> getComments(String article_id){
+		System.out.println("获取评论");
 		return commentmapper.getComments(article_id);
 		
 	}
