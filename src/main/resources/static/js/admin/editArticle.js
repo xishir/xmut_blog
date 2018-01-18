@@ -45,9 +45,11 @@ var testEditor;
                 });
                 */
 $("#createArticle").click(function() {
+	var $btn = $(this).button('loading');
 	if($("#title").val()==''||$("#tags").val()==''||$("#times").val()=='')
 	{
 		alert('请填写完整！');
+		$btn.button('reset');
 		return;
 	}
 
@@ -69,10 +71,12 @@ $("#createArticle").click(function() {
         dataType: "json",
         success: function(msg) {
             if (msg.code == "200") {
-                //登录成功
-                alert("ok");
+            	alert('编辑成功！');
+                $btn.button('reset');
+                window.location.href="/admin/manageArticle"; 
             } else {//登录失败
             // console.log(msg);
+            	$btn.button('reset');
             }
         },
     });

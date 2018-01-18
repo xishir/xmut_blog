@@ -1,6 +1,6 @@
 $(function () {
   //注销登陆
-	$("#Logout").click(function () {
+	$("#logout").click(function () {
 	$.ajax({
 		url: "/api/user/logout",
 	    type: "GET",

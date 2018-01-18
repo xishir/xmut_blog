@@ -84,7 +84,7 @@ $(function(){
     $(".blog-post-meta").append('<span class="glyphicon glyphicon-eye-open" aria-hidden="true">:'+currentArchive.visit+'</span>');
     $(".blog-post-meta").append('<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">:'+currentArchive.star+'</span>');
     $(".blog-post-meta").append('<span class="glyphicon glyphicon-comment" aria-hidden="true">:'+currentArchive.comment+'</span>');
-    $(".blog-content").text(currentArchive.content);
+    $(".blog-content").append(marked(currentArchive.content));
   }
   //根据标题查找文章
   function findArchbyTitle(tempT){

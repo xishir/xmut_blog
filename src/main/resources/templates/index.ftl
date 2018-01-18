@@ -79,6 +79,7 @@
 
     </div><!-- /.container -->
     <#include "footer.ftl"> 
+    <script src="/js/marked.js"></script>
     <script src="/js/indexJS.js"></script>
   </body>
 </html>

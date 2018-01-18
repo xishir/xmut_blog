@@ -141,7 +141,7 @@ public class ArticleService {
     public int getPageNum()
     {
     	String num=articleMapper.getPageNum();
-    	return Integer.parseInt(num)/10+1;
+    	return (Integer.parseInt(num)/10)+1;
     }
     //增加评论数
     public void addComment(String id)

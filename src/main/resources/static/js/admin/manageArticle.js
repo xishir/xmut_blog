@@ -36,6 +36,40 @@ $(function () {
 	    });
 	}
 	getArticle(1);
+	$.ajax({
+        url: "/api/article/pageNum",
+        type: "GET",
+        contentType: 'application/json; charset=UTF-8',
+        dataType: "json",
+        success: function(msg) {
+        	console.log(msg);
+            if (msg.code == "200") {
+            	var result='<li>\
+						      <a class="pages" href="#" aria-label="Previous" data="1">\
+						        <span aria-hidden="true">&laquo;</span>\
+						      </a>\
+						    </li>';
+            	var pageNum=msg.data;
+            	for(var i=1;i<=pageNum;i++){
+            		result+=
+            		'<li><a href="#" class="pages" data="'+i+'">'+i+'</a></li>';		
+            	}
+            	result+='<li>\
+					      <a href="#" class="pages" data="'+pageNum+'" aria-label="Next">\
+					        <span aria-hidden="true">&raquo;</span>\
+					      </a>\
+					    </li>';
+            	$("#pageCtrl").html('');
+                $("#pageCtrl").append(result);
+                	$(".pages").click(function() {
+                		getArticle($(this).attr('data'));
+                	});
+            } else {//登录失败
+            // console.log(msg);
+            }
+        },
+    });
+	pageCtrl
 
 
 $("#noCreateArticle").click(function() {

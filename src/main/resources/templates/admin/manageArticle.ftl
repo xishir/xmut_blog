@@ -53,11 +53,11 @@
       <table class="table table-hover">
       <thead>
         <tr id="blog-table-tr">
-          <th></th>
-          <th>标题</th>
-          <th>作者</th>
-          <th>日期</th>
-          <th>操作</th>
+          <th style="width:5%;"></th>
+          <th style="width:30%;">标题</th>
+          <th style="width:10%;">作者</th>
+          <th style="width:10%;">日期</th>
+          <th style="width:10%;">操作</th>
         </tr>
       </thead>
       <tbody id="articleBody">
@@ -66,7 +66,7 @@
     </table>
     <center>
 	  <nav aria-label="Page navigation" >
-		  <ul class="pagination">
+		  <ul class="pagination" id="pageCtrl">
 		    <li>
 		      <a href="#" aria-label="Previous">
 		        <span aria-hidden="true">&laquo;</span>

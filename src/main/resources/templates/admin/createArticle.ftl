@@ -3,11 +3,11 @@
 <html lang="zh-CN">
   <head>
   	<#include "../header.ftl"> 
+    <link rel="stylesheet" href="/editormd/style.css" />
+    <link rel="stylesheet" href="/editormd/css/editormd.css" />
     <link href="/css/blog.css" rel="stylesheet">
     <link href="/css/admin/main.css" rel="stylesheet">
     <link href="/css/admin/createArticle.css" rel="stylesheet">
-    <link rel="stylesheet" href="/editormd/style.css" />
-    <link rel="stylesheet" href="/editormd/css/editormd.css" />
     
   </head>
   <body>
