@@ -14,8 +14,8 @@ public class TagService {
     @Autowired
 	private TagMapper tagmapper;
     
-    public void createTag(Map<String, Object> reqMap) {
-    	tagmapper.createtag(reqMap);
+    public void createTag(String tag) {
+    	tagmapper.createtag(tag);
     }
     
     public void  deleteTag(TagInfo taginfo) {
@@ -24,7 +24,7 @@ public class TagService {
     public void updataTag(String tag,String id) {
     	tagmapper.updataTag(tag,id);
     }
-    public ArrayList<TagInfo> getSort(){
+    public ArrayList<String> getSort(){
 		return tagmapper.getSort();  	
     }
 	

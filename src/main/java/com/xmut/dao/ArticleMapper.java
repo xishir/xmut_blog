@@ -35,14 +35,17 @@ public interface ArticleMapper {
 	@Update("UPDATE blog.k_article SET content = #{content} WHERE id = #{id}")
     void UpdataContent(@Param("content") String content, @Param("id") String id);
 	
-	@Update("UPDATE blog.k_article SET title = #{title},author = #{author},sort = #{sort},content = #{content} WHERE id = #{id}")
-    void UpdataArticle(@Param("title") String title,@Param("author") String author,@Param("sort") String sort,@Param("content") String content, @Param("id") String id);
+	@Update("UPDATE blog.k_article SET title = #{title},author = #{author},sort = #{sort},time=#{time},content = #{content} WHERE id = #{id}")
+    void UpdataArticle(@Param("title") String title,@Param("author") String author,@Param("sort") String sort,@Param("time") String time,@Param("content") String content, @Param("id") String id);
 	
 	@Select("select * FROM blog.k_article WHERE id = #{id}")
 	ArticleInfo getArticle(@Param("id") String id);
     
     @Select("select * FROM blog.k_article ")
     ArrayList<ArticleInfo> getArticles();
+    
+    @Select("select * FROM blog.k_article order by time desc limit 10")
+    ArrayList<ArticleInfo> getArticles_Hot();
     
     @Select("select distinct(sort) FROM blog.k_article ")
     ArrayList<TagInfo> getSort();
