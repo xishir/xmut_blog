@@ -12,7 +12,7 @@
   <body>
 
     <div class="blog-masthead">
-      <div class="container">
+      <div class="container" style="width:90%;">
         <nav class="blog-nav">
           <ul style="margin-left:0px;">
             <li><a class="blog-nav-item" href="#">Admin</a></li>
@@ -44,10 +44,15 @@
     </div>
 
     <div class="container" style="width:90%;padding:0px;margin-top:10px;">
-      <h3 class="blog-post-title">Create Article</h3>
+    <div class="blog-post-title"><h3>Create Article</h3>
+      <!-- Standard button -->
+      <button type="button" class="btn btn-default" id="noCreateArticle">取消</button>
+	  <button type="button" class="btn" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;" id="createArticle">提交</button></div>
+      
 	  <div class="form-group">
 	    <input type="text" class="form-control" id="title" placeholder="文章标题">
 	  	<input type="text" class="form-control" id="tags" placeholder="标签,用英文逗号隔开">
+	  	<input type="text" class="form-control" id="times" placeholder="标签,用英文逗号隔开">
 	  </div>
       <div id="test-editormd">
                 <textarea style="display:none;">[TOC]
@@ -90,32 +95,7 @@
 
     <#include "../footer.ftl"> 
     <script src="/editormd/editormd.min.js"></script>
-        <script type="text/javascript">
-			var testEditor;
-
-            $(function() {
-                testEditor = editormd("test-editormd", {
-                    width   : "100%",
-                    height  : 640,
-                    syncScrolling : "single",
-                    path    : "/editormd/lib/",
-                    imageUpload : true,
-				    imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-				    imageUploadURL : "/api/admin/uploadfile",
-				    saveHTMLToTextarea : true
-                });
-                
-                /*
-                // or
-                testEditor = editormd({
-                    id      : "test-editormd",
-                    width   : "90%",
-                    height  : 640,
-                    path    : "/editormd/lib/"
-                });
-                */
-            });
-        </script>
+    <script src="/js/createArticle.js"></script>
     <script src="/js/mainjs.js"></script>
     
   </body>

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;  
@@ -26,9 +27,10 @@ public class WebController {
         return "admin/login";  
     }  
     
-    @RequestMapping("/Archive")
-    public String Archive(ModelMap map){  
+    @RequestMapping("/Archive/{id}")
+    public String Archive(@PathVariable("id")  String id,ModelMap map){  
         map.put("title", "Archive");  
+        map.put("ArchiveId", "id");  
         return "Archive";  
     }  
     
