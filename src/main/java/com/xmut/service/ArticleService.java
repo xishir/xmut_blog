@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
 import com.xmut.dao.ArticleMapper;
 import com.xmut.dao.TagMapper;
 import com.xmut.pojo.ArticleInfo;
@@ -25,11 +26,11 @@ public class ArticleService {
     
     public ArrayList<ArticleInfo> getList_Hot(Integer page) {
     	System.out.println("调用getArticles");
+    	PageHelper.startPage(page,10);
         return articleMapper.getArticles_Hot();
     }
     
     public ArticleInfo getInfo(String id) {
-    	System.out.println("aaa");
     	articleMapper.addVisit(id);
         return articleMapper.getArticle(id);
     }
@@ -41,13 +42,27 @@ public class ArticleService {
         strArray = tag.split(","); //拆分字符为"," ,然后把结果交给数组strArray 
     	articleMapper.createArticle(reqMap);
     	ArrayList<String> tagsort=tagmapper.getSort();
-    	for(int i=0;i<strArray.length;i++) {
-    		for(int j=0;j<tagsort.size();j++) {
-    			if(strArray[i].equals(tagsort.get(j)))
-    				break;
-    			else 
-    				tagmapper.createtag(strArray[i]);
-    				    		}
+    	for(int i=0;i<strArray.length;i++)
+    	{
+    		if(tagsort.size()==0)
+    		{
+    			tagmapper.createtag(strArray[i]);
+    			tagsort=tagmapper.getSort();
+    		}
+    		else
+    		{
+    			for(int j=0;j<tagsort.size();j++) 
+        		{
+        			if(strArray[i].equals(tagsort.get(j)))
+        			{
+        				tagmapper.addNum(tagsort.get(j));
+        				break;
+        			}
+        			else 
+        				tagmapper.createtag(strArray[i]);
+        			
+        		}
+    		}
     	}   	
     	return "success";
     }

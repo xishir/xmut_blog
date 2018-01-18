@@ -6,3 +6,9 @@ spring:
     username: root
     password: xmutkeshe
     driver-class-name: com.mysql.jdbc.Driver
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    pageSizeZero: true
+    params: count=countSql 
