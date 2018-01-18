@@ -26,7 +26,7 @@ $(function(){
       console.log(Archives[i].id,Archives[i].title,Archives[i].content);
       $(".list-group").append('<a href="/Archive/'+Archives[i].id+'" class="list-group-item"></a>');
       $(".list-group a:eq("+i+")").append('<h4 class="list-group-item-heading">'+Archives[i].title+'</h4>');
-      $(".list-group a:eq("+i+")").append('<p class="list-group-item-text">'+Archives[i].content+'</p>');
+      $(".list-group a:eq("+i+")").append('<p class="list-group-item-text">'+marked(Archives[i].content)+'</p>');
     }
   }
 })
