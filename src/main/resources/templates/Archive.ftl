@@ -43,7 +43,13 @@
               <div class="comment-form">
                 <h2>Post Comment</h2>
                 <textarea id="comment-content" class="col-sm-12" placeholder="评论内容..."></textarea>
-                <button class="btn btn-primary" id="comment-post-btn">Post</button>
+                <div class="input-group">
+                  <input type="text" id="Nickname" class="form-control" placeholder="Nickname">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" id="comment-post-btn">Post</button>
+                  </span>
+                </div><!-- /input-group -->
+                
               </div>
               
             </div>

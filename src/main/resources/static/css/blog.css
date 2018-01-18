@@ -3,7 +3,7 @@
  */
 
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Microsoft YaHei", "微软雅黑", Helvetica, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", Helvetica, Tahoma, "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
   color: #555;
 }
 
@@ -14,7 +14,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   margin-top: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Microsoft YaHei", "微软雅黑", Helvetica, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", Helvetica, Tahoma, "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
   font-weight: normal;
   color: #333;
 }
@@ -194,12 +194,12 @@ h6, .h6 {
   line-height: 2rem;
   color: rgba(0,0,0,.098)
 }
-
-#comment-post-btn{
-  width: 100px;
-  margin-top:10px;
+#comment-content{
+  resize: none;
 }
-
+.input-group{
+  margin-top:80px;
+}
 /*
  * Modal
  */
@@ -210,3 +210,6 @@ h6, .h6 {
   transform: translate(-50%,-50%);
 }
 
+.glyphicon-thumbs-up{
+  cursor: pointer;
+}

@@ -19,6 +19,7 @@ $(function(){
       success:function(data){
         currentArchive=data.data;
         putArch();
+        feelArchGood();
       }
     });
   }
@@ -50,8 +51,8 @@ $(function(){
       window.location.href="/Archive/"+currentArchive.behindid;
     });
     $("#comment-post-btn").click(function(){
-      if($("#comment-content").val()){
-        var datas={article_id:currentArchID,nickname:"visitor",content:$("#comment-content").val()};
+      if($("#comment-content").val()&&$("#Nickname").val()){
+        var datas={article_id:currentArchID,nickname:$("#Nickname").val(),content:$("#comment-content").val()};
         $.ajax({
           url:"/api/comment/create",
           type:"POST",
@@ -70,7 +71,7 @@ $(function(){
       }
       else {
         $("#myModalLabel").text("评论失败！");
-        $(".modal-body").text("评论不能为空！");
+        $(".modal-body").text("评论或昵称不能为空！");
     	  $("#myModal").modal("toggle");
       }
     });
@@ -101,11 +102,44 @@ $(function(){
       type:"Get",
       success:function(data){
         comments=data.data;
-        $(".comment-show").text("");
-        for(var i=0;i<comments.length;i++){
-          $(".comment-show").append('<div class="comments">'+comments[i].content+'</div>');
+        if(comments.length>0){
+          $(".comment-show").text("");
+          for(var i=0;i<comments.length;i++){
+            $(".comment-show").append('<div class="comments"><h4>'+comments[i].nickname+':</h4><p>'+
+            comments[i].content+'</p>'+comments[i].time.substring(0,10)+
+            '<span class="glyphicon glyphicon-thumbs-up" num='+i+' CommentId='+comments[i].id+' aria-hidden="true">:'+comments[i].star+'</span></div>');
+          }
+          feelComGood();
         }
       }
+    });
+  }
+  //文章点赞
+  function feelArchGood(){
+    $(".blog-post-meta .glyphicon-thumbs-up").click(function(){
+      $.ajax({
+        url:"/api/article/star/"+currentArchID,
+        type:"Get",
+        success:function(){
+          currentArchive.star++;
+          $(".blog-post-meta .glyphicon-thumbs-up").text(":"+currentArchive.star);
+        }
+      });
+    });
+  }
+  //评论点赞
+  function feelComGood(){
+    $(".comment-show .glyphicon-thumbs-up").click(function(){
+      var DOM=this;
+      var num=$(DOM).attr("num");
+      $.ajax({
+        url:"/api/comment/star/"+$(DOM).attr("CommentId"),
+        type:"Get",
+        success:function(){
+          comments[num].star++;
+          $(DOM).text(":"+comments[num].star);
+        }
+      });
     });
   }
 })
