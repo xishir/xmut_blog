@@ -60,7 +60,6 @@ $("#createArticle").click(function() {
 	}
 
     //添加文章
-    var datas = { "title": testEditor.getMarkdown(), "user_password": $("#inputPassword").val() };
     var datas = {
         "title": $("#title").val(),
         "author": "admin",

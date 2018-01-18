@@ -3,6 +3,7 @@ $(function () {
 	$.ajax({
         url: "/api/article/info/"+articleId,
         type: "GET",
+        synx:false,
         dataType: "json",
         success: function(msg) {
             if (msg.code == "200") {
@@ -51,8 +52,8 @@ $("#createArticle").click(function() {
 	}
 
     //添加文章
-    var datas = { "title": testEditor.getMarkdown(), "user_password": $("#inputPassword").val() };
     var datas = {
+    	"id": $("#articleId").val(),
         "title": $("#title").val(),
         "author": "admin",
         "sort": $("#tags").val(),
