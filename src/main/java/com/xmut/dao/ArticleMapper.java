@@ -44,7 +44,7 @@ public interface ArticleMapper {
 	@Select("select * FROM blog.k_article WHERE id = #{id}")
 	ArticleInfo getArticle(@Param("id") String id);
     
-    @Select("select * FROM blog.k_article ")
+    @Select("select * FROM blog.k_article order by time desc")
     ArrayList<ArticleInfo> getArticles();
     
     @Select("select id from blog.k_article where id<#{id} order by id desc limit 1")
