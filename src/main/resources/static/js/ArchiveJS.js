@@ -3,11 +3,13 @@ $(function(){
   var PopArchives;                          //热门文章
   var currentArchID=$("#hide").text();      //当前显示文章的ID
   var index;                                //当前显示文章的索引
+  var comments;                              //评论
   //初始化
   init();
   function init(){
     getCurrentArchives();
     getPopArchives(1);
+    getComments();
   }
   //得到当前文章内容
   function getCurrentArchives(){
@@ -50,8 +52,6 @@ $(function(){
     $("#comment-post-btn").click(function(){
       if($("#comment-content").val()){
         var datas={article_id:currentArchID,nickname:"visitor",content:$("#comment-content").val()};
-        console.log(JSON.stringify(datas));
-        alert(JSON.stringify(datas));
         $.ajax({
           url:"/api/comment/create",
           type:"POST",
@@ -59,7 +59,6 @@ $(function(){
           contentType: 'application/json; charset=UTF-8',
           dataType: "json",
           success:function(data){
-            console.log(data);
             $("#myModalLabel").text("评论成功！");
             $(".modal-body").text("感谢您的评论!");
             $("#myModal").modal("toggle");
@@ -94,5 +93,19 @@ $(function(){
         return i;
       }
     }
+  }
+  //得到评论
+  function getComments(){
+    $.ajax({
+      url:"/api/comment/list/"+currentArchID,
+      type:"Get",
+      success:function(data){
+        comments=data.data;
+        $(".comment-show").text("");
+        for(var i=0;i<comments.length;i++){
+          $(".comment-show").append('<div class="comments">'+comments[i].content+'</div>');
+        }
+      }
+    });
   }
 })
