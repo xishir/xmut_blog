@@ -31,10 +31,12 @@ public class ArticleService {
         return articleMapper.getArticles_Hot();
     }
     
-    public ArticleInfo getFrontBehindID(String id) {
+    public ArticleInfo getInfo(String id) {
+    	articleMapper.addVisit(id);
     	ArticleInfo article=articleMapper.getArticle(id);
-    	System.out.println("调用getFrontBehindID");
+    	System.out.println("调用getFrontID");
     	String frontid=articleMapper.getFrontID(id);
+    	System.out.println("调用getBehindID");
     	String behindid=articleMapper.getBehindID(id);
     	if(frontid==null)
     		frontid=id;
@@ -43,11 +45,6 @@ public class ArticleService {
     	article.setFrontid(frontid);
     	article.setBehindid(behindid);
         return article;
-    }
-    
-    public ArticleInfo getInfo(String id) {
-    	articleMapper.addVisit(id);
-        return articleMapper.getArticle(id);
     }
     
     public String createArticle(Map<String, Object> reqMap)
