@@ -172,3 +172,7 @@ h6, .h6 {
  #Arc-list li a{
    cursor: pointer;
  }
+
+ #hide{
+   display: none;
+ }

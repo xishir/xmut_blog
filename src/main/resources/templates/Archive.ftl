@@ -20,7 +20,7 @@
     </div>
 
     <div class="container">
-
+      <div id="hide">${ArchiveId}</div>
       <div class="blog-header">
         <h1 class="blog-title">AYYOYYU's Blog</h1>
         <p class="lead blog-description">A xmut_keshe Blog.</p>
@@ -31,8 +31,10 @@
         <div class="col-sm-8 blog-main">
 
           <div class="blog-post">
-            <h2 class="blog-post-title">Sample blog post</h2>
-            <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
+            <h2 class="blog-post-title"></h2>
+            <p class="blog-post-meta">
+              <a href="#"></a>
+            </p>
             <div class="blog-content"></div>
           </div><!-- /.blog-post -->
           <nav>
