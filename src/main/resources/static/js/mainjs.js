@@ -17,7 +17,6 @@ $(function () {
 	});
 	
 	
-	alert(1);
   $("#createArticle").click(function () {
 	  alert(1);
     //添加文章

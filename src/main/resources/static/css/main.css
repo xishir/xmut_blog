@@ -1,0 +1,23 @@
+.blog-nav-item-a 
+{color: #fff;
+ text-decoration:none;
+ } 
+ .blog-nav ul{
+	margin:0px;
+	padding:0px;
+}
+.blog-nav ul li{
+	float:left;
+	list-style-type:none;
+}
+.dropdown-menu li{
+	width:100%;
+	
+}
+.dropdown-menu li a{
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.container {
+	width:100%;
+}
