@@ -37,3 +37,7 @@ body {
 	margin:0px;
 	text-align:left;
 }
+
+.sidebar-module {
+	float:left;
+}

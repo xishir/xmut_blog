@@ -34,11 +34,11 @@ $(function () {
 	            	for(var i=0;i<leng;i++){
 	            		result+=
 	            		'<tr>\
-				          <th scope="row">'+(i+1)+'</th>\
-				          <td>'+Comments[i].nickname+'</td>\
-				          <td>在<a href="/Archive/'+Comments[i].article_id+'">'+Comments[i].title+'</a>中评论:<br>'+Comments[i].content+'</td>\
-				          <td>'+Comments[i].time.substring(0,10)+'</td>\
-				          <td>\
+				          <th scope="row" style="line-height:40px;height:40px;padding:0px;margin:0px;">'+(i+1)+'</th>\
+				          <td style="line-height:40px;height:40px;padding:0px;margin:0px;">'+Comments[i].nickname+'</td>\
+				          <td style="line-height:40px;height:40px;padding:0px;margin:0px;">在<a href="/Archive/'+Comments[i].article_id+'">'+Comments[i].title+'</a>中评论:&nbsp;&nbsp;'+Comments[i].content+'</td>\
+				          <td style="line-height:40px;height:40px;padding:0px;margin:0px;">'+Comments[i].time.substring(0,10)+'</td>\
+				          <td style="line-height:40px;height:40px;padding:0px;margin:0px;">\
 				          <button type="button" class="btn btn-danger delComment" data="'+Comments[i].id+'">删除</button>\
 				          </td>\
 				        </tr>';		

@@ -14,14 +14,14 @@
       <div class="container" style="width:90%;">
         <nav class="blog-nav">
           <ul style="margin-left:0px;">
-            <li><a class="blog-nav-item" href="#">Admin</a></li>
+            <li><a class="blog-nav-item " href="/admin">Admin</a></li>
             <li><a class="blog-nav-item" href="/admin/createArticle">Create</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle blog-nav-item active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/admin/manageArticle">Article</a></li>
-                <li><a href="#">Comment</a></li>
-                <li><a href="#">TagCtrl</a></li>
+                <li><a href="/admin/manageComment">Comment</a></li>
+                <!--li><a href="#">TagCtrl</a></li-->
               </ul>
             </li>
             <li class="dropdown">
