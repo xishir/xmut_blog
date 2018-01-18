@@ -30,6 +30,19 @@ public class ArticleService {
     	articleMapper.createArticle(reqMap);
     	return "success";
     }
+    //增加浏览数
+    public void addVisit(String id)
+    {
+    	articleMapper.addVisit(id);
+    }
+    
+    //增加点赞数
+    public void addStar(String id)
+    {
+    	articleMapper.addStar(id);;
+    }
+    
+    
     
     
 }

@@ -24,6 +24,6 @@ public interface TagMapper {
     ArrayList<TagInfo> getSort();
 	
 	@Update("UPDATE blog.k_tag SET tag = #{tag} WHERE id = #{id}")
-    void updataTag(@Param("id") String id);
+    void updataTag(@Param("tag") String tag,@Param("id") String id);
 
 }
