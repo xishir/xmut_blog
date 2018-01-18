@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.xmut.dao.ArticleMapper;
 import com.xmut.dao.CommentMapper;
 import com.xmut.pojo.CommentInfo;
 import com.xmut.util.TimeUtil;
@@ -14,7 +15,11 @@ import com.xmut.util.TimeUtil;
 public class CommentService {
 	@Autowired
 	private CommentMapper commentmapper;
+	@Autowired
+	private ArticleMapper articleMapper;
 	public void  createcomment(Map<String, Object> reqMap) {
+		String article_id=reqMap.get("article_id").toString();
+		articleMapper.addComment(article_id);
 		reqMap.put("time",TimeUtil.getTime());
 		commentmapper.createcomment(reqMap);
 		
