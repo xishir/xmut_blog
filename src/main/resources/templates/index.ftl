@@ -10,8 +10,8 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item" href="#">首页</a>
-          <a class="blog-nav-item active" href="#">文章</a>
+          <a class="blog-nav-item active" href="/index">首页</a>
+          <a class="blog-nav-item" href="/Archives">文章</a>
           <a class="blog-nav-item" href="#">归档</a>
           <a class="blog-nav-item" href="#">友链</a>
           <a class="blog-nav-item" href="#">关于</a>
@@ -30,11 +30,15 @@
 
         <div class="col-sm-8 blog-main">
 
-          <div class="blog-post">
-            <h2 class="blog-post-title">Sample blog post</h2>
-            <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
-            <div class="blog-content"></div>
-          </div><!-- /.blog-post -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">New Archives</h3>
+            </div>
+            <div class="panel-body" id="new-Archives">
+              <div class="list-group">
+              </div>
+            </div>
+          </div>
           <nav>
             <ul class="pager">
               <li><a id="Previous">Previous</a></li>
@@ -50,8 +54,8 @@
             <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
           </div>
           <div class="sidebar-module">
-            <h4>Archives</h4>
-            <ol class="list-unstyled" id="Arc-list">
+            <h4>Tags</h4>
+            <ol class="list-unstyled" id="Tag-list">
             </ol>
           </div>
           <div class="sidebar-module">

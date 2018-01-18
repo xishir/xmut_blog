@@ -10,8 +10,8 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item" href="#">首页</a>
-          <a class="blog-nav-item active" href="#">文章</a>
+          <a class="blog-nav-item" href="/index">首页</a>
+          <a class="blog-nav-item active" href="/Archives">文章</a>
           <a class="blog-nav-item" href="#">归档</a>
           <a class="blog-nav-item" href="#">友链</a>
           <a class="blog-nav-item" href="#">关于</a>
@@ -66,6 +66,6 @@
 
     </div><!-- /.container -->
     <#include "footer.ftl"> 
-    <script src="/js/indexJS.js"></script>
+    <script src="/js/ArchiveJS.js"></script>
   </body>
 </html>

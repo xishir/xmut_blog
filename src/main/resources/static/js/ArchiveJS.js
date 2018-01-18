@@ -5,6 +5,7 @@ $(function(){
   init();
   function init(){
     getArchives(1);
+    getTargetArchives();
   }
   //得到文章内容
   function getArchives(page){
@@ -20,6 +21,10 @@ $(function(){
         bind();
       }
     });
+  }
+  //外部跳转目标文章
+  function getTargetArchives(){
+
   }
   //绑定点击事件
   function bind(){
