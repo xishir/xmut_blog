@@ -29,12 +29,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle blog-nav-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Setting<span class="caret"></span></a>
               <ul class="dropdown-menu">
-              	<li><a href="#">Base</a></li>
-                <li><a href="#">User</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Other</li>
-                <li><a href="#">Hello</a></li>
-                <li><a href="#">World</a></li>
+              	<!--li id="editAbout"><a href="#">Edit About</a></li>
+                <li class="dropdown-header">User</li-->
+                <li id="editPass"><a href="#">Edit User</a></li>
               </ul>
             </li>
           </ul>
@@ -64,7 +61,7 @@
       
 
     </div><!-- /.container -->
-
+	<#include "setting.ftl"> 
     <#include "../footer.ftl"> 
     <script src="/editormd/editormd.min.js"></script>
     <script src="/js/admin/editArticle.js"></script>

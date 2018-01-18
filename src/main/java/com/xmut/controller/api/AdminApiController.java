@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.xmut.pojo.UserInfo;
 import com.xmut.service.ArticleService;
 import com.xmut.service.CommentService;
 import com.xmut.service.TagService;
@@ -41,17 +43,57 @@ public class AdminApiController {
     @Autowired
     private TagService tagService;
 
+
     /**
-     * 登录
-     * @param map
+     * 更新用户信息
+     * @param nickName 昵称
+     */
+    @PostMapping("/updateUser")
+    public Msg updateUser(@RequestBody Map<String,Object> reqMap){
+        System.out.println("修改信息");
+        service.updateUser(reqMap);
+    	return Result.success();
+    }
+
+    /**
+     * 获取用户信息
+     * @param id 用户Id
      * @return
      */
-    @PostMapping("/logincheck")
-    public Msg logcheck(@RequestBody Map<String,Object> reqMap,HttpSession session){
-    	System.out.println(session.getAttribute("isLogin"));
-    	session.setAttribute("isLogin", 1);
-        return Result.success(session.getAttribute("isLogin"));
-    }   
+    @GetMapping("/getUser/{id}")
+    public Msg getUser(@PathVariable("id")  Integer id){
+        return Result.success(service.getUser(id));
+    }
+    
+    /**
+     * 获取所有用户信息
+     * @return
+     */
+    @GetMapping("/getUsers")
+    public Msg getUsers(){
+        return Result.success(service.getUsers());
+    }
+
+    /**
+     * 删除用户
+     * @param tel
+     */
+    @GetMapping("/deleteUserByUserId/{tel}")
+    public void deleteUserByUserId(@PathVariable("tel")  String tel){
+        UserInfo user  = new UserInfo();
+        //user.setTel(tel);
+        service.deleteUserByUserId(user);
+    }
+
+    /**
+     * 使用@RequestBody获取参数，用map类型接收，再取出
+     * @param reqMap
+     */
+    @PostMapping("/createUserByMap")
+    public void createUserByMap(@RequestBody Map<String,Object> reqMap){
+    	System.out.println(reqMap);
+        service.createUser(reqMap);
+    }
     
     /**
      * 添加文章

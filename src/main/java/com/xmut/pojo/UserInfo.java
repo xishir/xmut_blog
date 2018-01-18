@@ -10,6 +10,7 @@ public class UserInfo implements Serializable{
     private String user_id;
     private String user_name;
     private String user_password;
+    private String about;
 
 
 
@@ -51,6 +52,15 @@ public class UserInfo implements Serializable{
 
 	public void setUser_password(String user_password) {
 		this.user_password = user_password;
+	}
+	
+	public String getAbout() {
+		return about;
+	}
+
+
+	public void setAbout(String about) {
+		this.about = about;
 	}
 
 

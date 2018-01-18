@@ -33,56 +33,6 @@ public class UserController {
     private UserService service;
 
     /**
-     * 更新用户信息
-     * @param user_id 用户ID
-     * @param nickName 昵称
-     */
-    @GetMapping("/updateUser/{id}")
-    public void updateUser(@PathVariable("id") String user_id, @RequestParam("user_name") String user_name, @RequestParam("user_password") String user_password){
-        service.updateUser(user_id,user_name,user_password);
-    }
-
-    /**
-     * 获取用户信息
-     * @param id 用户Id
-     * @return
-     */
-    @GetMapping("/getUser/{id}")
-    public Msg getUser(@PathVariable("id")  Integer id){
-        return Result.success(service.getUser(id));
-    }
-    
-    /**
-     * 获取所有用户信息
-     * @return
-     */
-    @GetMapping("/getUsers")
-    public Msg getUsers(){
-        return Result.success(service.getUsers());
-    }
-
-    /**
-     * 删除用户
-     * @param tel
-     */
-    @GetMapping("/deleteUserByUserId/{tel}")
-    public void deleteUserByUserId(@PathVariable("tel")  String tel){
-        UserInfo user  = new UserInfo();
-        //user.setTel(tel);
-        service.deleteUserByUserId(user);
-    }
-
-    /**
-     * 使用@RequestBody获取参数，用map类型接收，再取出
-     * @param reqMap
-     */
-    @PostMapping("/createUserByMap")
-    public void createUserByMap(@RequestBody Map<String,Object> reqMap){
-    	System.out.println(reqMap);
-        service.createUser(reqMap);
-    }
-    
-    /**
      * 登录
      * @param map
      * @return

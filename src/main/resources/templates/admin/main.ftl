@@ -25,12 +25,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle blog-nav-item" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Setting<span class="caret"></span></a>
               <ul class="dropdown-menu">
-              	<li><a href="#">Base</a></li>
-                <li><a href="#">User</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Other</li>
-                <li><a href="#">Hello</a></li>
-                <li><a href="#">World</a></li>
+              	<!--li id="editAbout"><a href="#">Edit About</a></li>
+                <li class="dropdown-header">User</li-->
+                <li id="editPass"><a href="#">Edit User</a></li>
               </ul>
             </li>
           </ul>
@@ -46,8 +43,12 @@
     <div class="jumbotron">
       
         <h1>AYYOYYU's Blog</h1>
-        <p>目前有 <span id="articleNum" style="color:#000;font-size:30px;">1</span> 篇文章, 并有 <span id="commentNum" style="color:#000;font-size:30px;"></span> 条关于你的评论在 <span id="tagNum" style="color:#000;font-size:30px;"></span> 个分类中. </p>
-
+        <p>目前有 <span id="articleNum" style="color:#000;font-size:30px;"></span> 篇文章, 并有 <span id="commentNum" style="color:#000;font-size:30px;"></span> 条关于你的评论在 <span id="tagNum" style="color:#000;font-size:30px;"></span> 个分类中. </p>
+		<div>
+			<a href="/admin/createArticle">Create Article</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="/admin/manageArticle">Manage Article</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="/admin/manageComment">Manage Comment</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
     </div>
       <!-- Example row of columns -->
       <div class="row">
@@ -82,7 +83,7 @@
 
 
     </div> <!-- /container -->
-
+	<#include "setting.ftl"> 
     <#include "../footer.ftl"> 
     <script src="/js/admin/mainjs.js"></script>
     <script src="/js/admin/index.js"></script>

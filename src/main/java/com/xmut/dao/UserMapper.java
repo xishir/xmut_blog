@@ -24,8 +24,8 @@ public interface UserMapper {
     @Select("select * FROM blog.k_user ")
     ArrayList<UserInfo> getUsers();
 
-    @Update("UPDATE blog.k_user SET user_name = #{user_name},user_password=#{user_password} WHERE user_id = #{user_id}")
-    void updateUser(@Param("user_id") String user_id, @Param("user_name") String user_name, @Param("user_password") String user_password);
+    @Update("UPDATE blog.k_user SET user_password=md5(#{user_password}),about=#{about} WHERE user_name = #{user_name}")
+    void updateUser(Map<String,Object> reqMap);
 
     @Delete("DELETE FROM blog.k_user WHERE user_id = #{user_id}")
     void deleteUserByUserId(UserInfo userInfo);
