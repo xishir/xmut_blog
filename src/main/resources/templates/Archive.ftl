@@ -33,9 +33,20 @@
           <div class="blog-post">
             <h2 class="blog-post-title"></h2>
             <p class="blog-post-meta">
-              <a href="#"></a>
             </p>
             <div class="blog-content"></div>
+            <div class="comment">
+              <h2>Comment</h2>
+              <div class="comment-show"> 
+                No comments
+              </div>
+              <div class="comment-form">
+                <h2>Post Comment</h2>
+                <textarea id="comment-content" class="col-sm-12" placeholder="评论内容..."></textarea>
+                <button class="btn btn-primary" id="comment-post-btn">Post</button>
+              </div>
+              
+            </div>
           </div><!-- /.blog-post -->
           <nav>
             <ul class="pager">
@@ -65,7 +76,22 @@
         </div><!-- /.blog-sidebar -->
 
       </div><!-- /.row -->
-
+      <!-- 模态框（Modal） -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title" id="myModalLabel">评论成功！</h4>
+            </div>
+            <div class="modal-body">感谢您的评论!</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
     </div><!-- /.container -->
     <#include "footer.ftl"> 
     <script src="/js/ArchiveJS.js"></script>

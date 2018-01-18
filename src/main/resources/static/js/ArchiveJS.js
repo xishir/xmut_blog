@@ -17,7 +17,6 @@ $(function(){
       success:function(data){
         currentArchive=data.data;
         putArch();
-        getTargetArchives();
       }
     });
   }
@@ -29,17 +28,12 @@ $(function(){
       
       success:function(data){
         PopArchives=data.data;
-        console.log(PopArchives);
         for(var i=0;i<PopArchives.length;i++){
           $("#Arc-list").append("<li><a>"+PopArchives[i].title+"</a></li>");
         }
         bind();
       }
     });
-  }
-  //跳转目标文章
-  function getTargetArchives(){
-    putArch();
   }
   //绑定点击事件
   function bind(){
@@ -48,19 +42,50 @@ $(function(){
       window.location.href="/Archive/"+PopArchives[resT].id;
     });
     $("#Previous").click(function(){
-      window.location.href="/Archive/"+currentArchive.id;
+      window.location.href="/Archive/"+currentArchive.frontid;
     });
     $("#Next").click(function(){
-      window.location.href="/Archive/"+currentArchive.id;
+      window.location.href="/Archive/"+currentArchive.behindid;
     });
+    $("#comment-post-btn").click(function(){
+      if($("#comment-content").val()){
+        var datas={article_id:currentArchID,nickname:"visitor",content:$("#comment-content").val()};
+        console.log(JSON.stringify(datas));
+        alert(JSON.stringify(datas));
+        $.ajax({
+          url:"/api/comment/create",
+          type:"POST",
+          data: JSON.stringify(datas),
+          contentType: 'application/json; charset=UTF-8',
+          dataType: "json",
+          success:function(data){
+            console.log(data);
+            $("#myModalLabel").text("评论成功！");
+            $(".modal-body").text("感谢您的评论!");
+            $("#myModal").modal("toggle");
+            $("#myModal").on("hide.bs.modal",function(){
+              window.location.href="/Archive/"+currentArchive.id;
+            });
+          }
+        });
+      }
+      else {
+        $("#myModalLabel").text("评论失败！");
+        $(".modal-body").text("评论不能为空！");
+    	  $("#myModal").modal("toggle");
+      }
+    });
+
   }
   //显示选定的文章
   function putArch(){
     $(".blog-post-title").text(currentArchive.title);
     $(".blog-post-meta").append(currentArchive.time.substring(0,10));
     $(".blog-post-meta").append(" by <a>"+currentArchive.author+"</a>");
+    $(".blog-post-meta").append('<span class="glyphicon glyphicon-eye-open" aria-hidden="true">:'+currentArchive.visit+'</span>');
+    $(".blog-post-meta").append('<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">:'+currentArchive.star+'</span>');
+    $(".blog-post-meta").append('<span class="glyphicon glyphicon-comment" aria-hidden="true">:'+currentArchive.comment+'</span>');
     $(".blog-content").text(currentArchive.content);
-
   }
   //根据标题查找文章
   function findArchbyTitle(tempT){

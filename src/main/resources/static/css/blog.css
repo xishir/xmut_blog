@@ -169,10 +169,41 @@ h6, .h6 {
 /*
  * List
  */
- #Arc-list li a{
-   cursor: pointer;
- }
+#Arc-list li a{
+  cursor: pointer;
+}
 
- #hide{
-   display: none;
- }
+#hide{
+  display: none;
+}
+ 
+.glyphicon{
+  margin-left: 10px;
+}
+
+.comment{
+  margin-top:50px;
+}
+
+.comment-show {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  color: rgba(0,0,0,.098)
+}
+
+#comment-post-btn{
+  width: 100px;
+  margin-top:10px;
+}
+
+/*
+ * Modal
+ */
+
+ #myModal{
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
