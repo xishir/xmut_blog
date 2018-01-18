@@ -1,6 +1,7 @@
 $(function(){
   var Archives;                             //文章
   var currentArchID=0;                      //当前显示文章
+  var temp=${articleId};
   //初始化
   init();
   function init(){

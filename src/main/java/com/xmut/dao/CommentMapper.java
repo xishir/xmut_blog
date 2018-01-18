@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Update;
 
 import com.xmut.pojo.ArticleInfo;
 import com.xmut.pojo.CommentInfo;
-
+@Mapper
 public interface CommentMapper {
 
 	@Insert("INSERT INTO blog.k_comment VALUES (#{article_id},#{nickname},#{content},#{time},#{star},#{diss})")

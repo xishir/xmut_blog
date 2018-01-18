@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.xmut.pojo.TagInfo;
-
+@Mapper
 public interface TagMapper {
 	
 	@Insert("INSERT INTO blog.k_tag VALUES (#{id},#{tag})")
