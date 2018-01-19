@@ -11,6 +11,7 @@ import com.xmut.dao.ArticleMapper;
 import com.xmut.dao.CommentMapper;
 import com.xmut.pojo.CommentInfo;
 import com.xmut.util.TimeUtil;
+import com.xmut.util.XssUtil;
 
 @Service
 public class CommentService {
@@ -20,6 +21,10 @@ public class CommentService {
 	private ArticleMapper articleMapper;
 	public void  createcomment(Map<String, Object> reqMap) {
 		String article_id=reqMap.get("article_id").toString();
+		String content=XssUtil.cleanXSS(reqMap.get("content").toString());
+		String nickname=XssUtil.cleanXSS(reqMap.get("nickname").toString());
+		reqMap.put("content", content);
+		reqMap.put("nickname", nickname);
 		articleMapper.addComment(article_id);
 		reqMap.put("time",TimeUtil.getTime());
 		commentmapper.createcomment(reqMap);
