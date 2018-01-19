@@ -213,12 +213,26 @@ h6, .h6 {
 .glyphicon-thumbs-up{
   cursor: pointer;
 }
-.list-group h4,p,a{
-  word-break: break-all;
-  white-space:nowrap;
+.list-group>a,.list-group>h4{
   overflow:hidden;
-  text-overflow:ellipsis;
 }
 .list-group img{
   width: 100%;
+}
+
+.blog-content img{
+  width: 100%;
+}
+
+.panel-heading{
+  padding: 15px 30px;
+  font-size: 16px;
+  line-height: 25px;
+}
+.list-group-item{
+  border: none;
+  border-bottom: 2px solid #ddd;
+}
+.list-group-item:last-child{
+  border-bottom: 1px solid #ddd;
 }
