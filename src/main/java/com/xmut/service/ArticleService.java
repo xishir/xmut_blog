@@ -10,6 +10,7 @@ import com.github.pagehelper.PageHelper;
 import com.xmut.dao.ArticleMapper;
 import com.xmut.dao.TagMapper;
 import com.xmut.pojo.ArticleInfo;
+import com.xmut.util.XssUtil;
 
 @Service
 public class ArticleService {
@@ -45,6 +46,17 @@ public class ArticleService {
     
     public String createArticle(Map<String, Object> reqMap)
     {
+    	String sort=XssUtil.cleanXSS(reqMap.get("sort").toString());
+		String content=XssUtil.cleanXSS2(reqMap.get("content").toString());
+		String title=XssUtil.cleanXSS(reqMap.get("title").toString());
+		String author=XssUtil.cleanXSS(reqMap.get("author").toString());
+		String time=XssUtil.cleanXSS(reqMap.get("time").toString());
+		reqMap.put("sort", sort);
+		reqMap.put("title", title);
+		reqMap.put("author", author);
+		reqMap.put("author", author);
+		reqMap.put("time", time);
+
     	String tag=(String) reqMap.get("sort");
     	String[] strArray = null;   
         strArray = tag.split(","); //拆分字符为"," ,然后把结果交给数组strArray 
