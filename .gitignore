@@ -1,8 +1,6 @@
 .settings/*
-
 target/*
-
 .classpath*
-
+*.yml
 .project*
 /target/
