@@ -236,3 +236,14 @@ h6, .h6 {
 .list-group-item:last-child{
   border-bottom: 1px solid #ddd;
 }
+
+
+/* tagscloud */
+#Tag-list{width:250px;height:260px;position:relative;font-size:12px;color:#333;margin:20px auto 0;text-align:center;}
+#Tag-list a{position:absolute;top:0px;left:0px;color:#333;font-family:Arial;text-decoration:none;margin:0 10px 15px 0;line-height:18px;text-align:center;font-size:12px;padding:1px 5px;display:inline-block;border-radius:3px;}
+#Tag-list a.tagc0{background:#666;color:#fff;}
+#Tag-list a.tagc1{background:#F16E50;color:#fff;}
+#Tag-list a.tagc2{background:rgb(22, 22, 231);color:#fff;}
+#Tag-list a.tagc3{background:rgb(23, 231, 204);color:#fff;}
+#Tag-list a.tagc4{background:#006633;color:#fff;}
+#Tag-list a:hover{color:#fff;background:#0099ff;}

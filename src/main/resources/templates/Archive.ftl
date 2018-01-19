@@ -71,6 +71,7 @@
           <div class="sidebar-module">
             <h4>Archives</h4>
             <ol class="list-unstyled" id="Arc-list">
+            <a href="#" class="tagc1"></a>
             </ol>
           </div>
           <div class="sidebar-module">

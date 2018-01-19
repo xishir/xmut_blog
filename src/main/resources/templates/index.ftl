@@ -63,8 +63,8 @@
           </div>
           <div class="sidebar-module">
             <h4>Tags</h4>
-            <ol class="list-unstyled" id="Tag-list">
-            </ol>
+            <div class="" id="Tag-list">
+            </div>
           </div>
           <div class="sidebar-module">
             <h4>Elsewhere</h4>
@@ -80,5 +80,6 @@
     <#include "footer.ftl"> 
     <script src="/js/marked.js"></script>
     <script src="/js/indexJS.js"></script>
+    <script src="/js/jQcloud.js"></script>
   </body>
 </html>
