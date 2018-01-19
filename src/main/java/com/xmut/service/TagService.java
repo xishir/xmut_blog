@@ -27,6 +27,9 @@ public class TagService {
     public ArrayList<String> getSort(){
 		return tagmapper.getSort();  	
     }
+    public ArrayList<TagInfo> getSorts(){
+		return tagmapper.getSorts();  	
+    }
     
     public Integer getTagNum()
     {

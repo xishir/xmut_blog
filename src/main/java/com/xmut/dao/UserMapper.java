@@ -21,6 +21,9 @@ public interface UserMapper {
     @Select("select * FROM blog.k_user WHERE user_id = #{user_id}")
     UserInfo getUser(@Param("user_id") Integer user_id);
     
+    @Select("select about FROM blog.k_user WHERE user_name = #{user_name}")
+    String getUserByName(@Param("user_name") String user_name);
+    
     @Select("select * FROM blog.k_user ")
     ArrayList<UserInfo> getUsers();
 

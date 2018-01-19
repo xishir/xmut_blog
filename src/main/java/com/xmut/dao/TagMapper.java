@@ -23,6 +23,9 @@ public interface TagMapper {
 	@Select("select distinct tag FROM blog.k_tag ")	
     ArrayList<String> getSort();
 	
+	@Select("select tag,num FROM blog.k_tag ")	
+    ArrayList<TagInfo> getSorts();
+	
 	@Select("select * FROM blog.k_tag where id=#{id}")
 	TagInfo getTag(@Param("id") String id);
 	

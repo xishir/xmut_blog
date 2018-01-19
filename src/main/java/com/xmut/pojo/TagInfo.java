@@ -8,6 +8,7 @@ public class TagInfo implements Serializable{
 
     private String id;
     private String tag;
+    private String num;
     
     public TagInfo() {
 	}
@@ -26,6 +27,16 @@ public class TagInfo implements Serializable{
 
 	public void setTag(String tag) {
 		this.tag = tag;
+	}
+	
+	
+
+	public String getNum() {
+		return num;
+	}
+
+	public void setNum(String num) {
+		this.num = num;
 	}
 
 	public static long getSerialversionuid() {

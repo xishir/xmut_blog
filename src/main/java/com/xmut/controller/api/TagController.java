@@ -41,7 +41,7 @@ public class TagController {
      */
     @GetMapping("/list")
     public Msg getList(){
-        return Result.success(service.getSort());
+        return Result.success(service.getSorts());
     }
     
 }

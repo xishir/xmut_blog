@@ -24,6 +24,10 @@ public class UserService {
         return userMapper.getUser(id);
     }
     
+    public String getUserByName(String user_name) {
+        return userMapper.getUserByName(user_name);
+    }
+    
     public ArrayList<UserInfo> getUsers() {
         return userMapper.getUsers();
     }

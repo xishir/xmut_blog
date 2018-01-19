@@ -57,4 +57,13 @@ public class UserController {
     	session.removeAttribute("isLogin");
     	return Result.success();
     }  
+    
+    /**
+     * 获取用户信息
+     * @return
+     */
+    @GetMapping("/about")
+    public Msg getUser(){
+        return Result.success(service.getUserByName("admin"));
+    }
 }
