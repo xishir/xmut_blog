@@ -1,6 +1,6 @@
 .settings/*
 target/*
 .classpath*
-/src/main/resources/*.yml
+/src/main/resources/application.yml
 .project*
 /target/
