@@ -20,13 +20,11 @@ public class ArticleService {
     private TagMapper tagmapper;
 
     public ArrayList<ArticleInfo> getList(Integer page) {
-    	System.out.println("调用getArticles");
     	PageHelper.startPage(page,10);
         return articleMapper.getArticles();
     }
     
     public ArrayList<ArticleInfo> getList_Hot(Integer page) {
-    	System.out.println("调用getArticles");
     	PageHelper.startPage(page,10);
         return articleMapper.getArticles_Hot();
     }
@@ -34,9 +32,7 @@ public class ArticleService {
     public ArticleInfo getInfo(String id) {
     	articleMapper.addVisit(id);
     	ArticleInfo article=articleMapper.getArticle(id);
-    	System.out.println("调用getFrontID");
     	String frontid=articleMapper.getFrontID(id);
-    	System.out.println("调用getBehindID");
     	String behindid=articleMapper.getBehindID(id);
     	if(frontid==null)
     		frontid=id;

@@ -19,14 +19,12 @@ $(function () {
 	
 	function getComment(page)
 	{
-		console.log("/api/comment/lists/"+page);
 		$.ajax({
 	        url: "/api/comment/lists/"+page,
 	        type: "GET",
 	        contentType: 'application/json; charset=UTF-8',
 	        dataType: "json",
 	        success: function(msg) {
-	        	console.log(msg);
 	            if (msg.code == "200") {
 	            	var result='';
 	            	var Comments=msg.data;
@@ -50,7 +48,6 @@ $(function () {
 	                	delComment($(this).attr('data'));
 	        		});
 	            } else {//登录失败
-	            // console.log(msg);
 	            }
 	        },
 	    });
@@ -82,8 +79,6 @@ $(function () {
 	
 	function setPageCtrl(nowPage,num)
 	{
-		console.log(nowPage);
-		console.log(num);
 		var result='<li>\
 				      <a class="pages" href="#" aria-label="Previous" data="'+(nowPage>1?nowPage-1:nowPage)+'">\
 				        <span aria-hidden="true">&laquo;</span>\

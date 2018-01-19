@@ -1,14 +1,12 @@
 $(function () {
 	function getArticle(page)
 	{
-		console.log("/api/article/list/"+page);
 		$.ajax({
 	        url: "/api/article/list/"+page,
 	        type: "GET",
 	        contentType: 'application/json; charset=UTF-8',
 	        dataType: "json",
 	        success: function(msg) {
-	        	console.log(msg);
 	            if (msg.code == "200") {
 	            	var result='';
 	            	var Archives=msg.data;
@@ -20,7 +18,6 @@ $(function () {
 	            	$("#newArticle").html('');
 	                $("#newArticle").append(result);
 	            } else {
-	            // console.log(msg);
 	            }
 	        },
 	    });
@@ -28,14 +25,12 @@ $(function () {
 	
 	function getComment(page)
 	{
-		console.log("/api/comment/lists/"+page);
 		$.ajax({
 	        url: "/api/comment/lists/"+page,
 	        type: "GET",
 	        contentType: 'application/json; charset=UTF-8',
 	        dataType: "json",
 	        success: function(msg) {
-	        	console.log(msg);
 	            if (msg.code == "200") {
 	            	var result='';
 	            	var Comments=msg.data;
@@ -47,7 +42,6 @@ $(function () {
 	            	$("#newComment").html('');
 	                $("#newComment").append(result);
 	            } else {//登录失败
-	            // console.log(msg);
 	            }
 	        },
 	    });
@@ -61,13 +55,11 @@ $(function () {
 	        contentType: 'application/json; charset=UTF-8',
 	        dataType: "json",
 	        success: function(msg) {
-	        	console.log(msg);
 	            if (msg.code == "200") {
 	            	$("#articleNum").html(msg.data.articleNum);
 	            	$("#commentNum").html(msg.data.commentNum);
 	            	$("#tagNum").html(msg.data.tagNum);
 	            } else {//登录失败
-	            // console.log(msg);
 	            }
 	        },
 	    });

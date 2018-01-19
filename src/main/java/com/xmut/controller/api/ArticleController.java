@@ -40,7 +40,6 @@ public class ArticleController {
      */
     @GetMapping("/list/{page}")
     public Msg getList(@PathVariable("page")  Integer id){
-    	System.out.println("调用getList");
         return Result.success(service.getList(id));
     }
     

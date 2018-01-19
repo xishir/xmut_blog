@@ -8,14 +8,12 @@ $(function () {
         dataType: "json",
         success: function(msg) {
             if (msg.code == "200") {
-            	console.log(msg);
             	$("#title").val(msg.data.title);
                 $("#tags").val(msg.data.sort);
                 $("#times").val(msg.data.time);
                 $("#times").val(msg.data.time);
                 $("#articleContent").text(msg.data.content);
             } else {//登录失败
-            // console.log(msg);
             }
         },
     });
@@ -48,7 +46,6 @@ $("#createArticle").click(function() {
         "time": $("#times").val(),
         "content": testEditor.getMarkdown()
     };
-    console.log(datas);
     $.ajax({
         url: "/api/admin/article/edit",
         type: "POST",
@@ -61,7 +58,6 @@ $("#createArticle").click(function() {
                 $btn.button('reset');
                 window.location.href="/admin/manageArticle"; 
             } else {//登录失败
-            // console.log(msg);
             	$btn.button('reset');
             }
         },

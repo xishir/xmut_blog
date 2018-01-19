@@ -26,12 +26,10 @@ public class CommentService {
 		
 	}
 	public ArrayList<CommentInfo> getComments(String article_id){
-		System.out.println("获取评论");
 		return commentmapper.getComments(article_id);
 	}
 	
 	public ArrayList<CommentInfo> getAllComments(String page){
-		System.out.println("获取所有评论");
 		PageHelper.startPage(Integer.parseInt(page),10);
 		return commentmapper.getAllComments();
 	}

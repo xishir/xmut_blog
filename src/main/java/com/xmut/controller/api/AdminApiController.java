@@ -50,7 +50,6 @@ public class AdminApiController {
      */
     @PostMapping("/updateUser")
     public Msg updateUser(@RequestBody Map<String,Object> reqMap){
-        System.out.println("修改信息");
         service.updateUser(reqMap);
     	return Result.success();
     }
@@ -91,7 +90,6 @@ public class AdminApiController {
      */
     @PostMapping("/createUserByMap")
     public void createUserByMap(@RequestBody Map<String,Object> reqMap){
-    	System.out.println(reqMap);
         service.createUser(reqMap);
     }
     
@@ -101,7 +99,6 @@ public class AdminApiController {
      */
     @PostMapping("/article/create")
     public Msg create(@RequestBody Map<String,Object> reqMap){
-    	System.out.println("添加文章");
         return Result.success(articleService.createArticle(reqMap));
     }
     
@@ -111,7 +108,6 @@ public class AdminApiController {
      */
     @PostMapping("/article/edit")
     public Msg edit(@RequestBody Map<String,Object> reqMap){
-    	System.out.println("编辑文章");
         return Result.success(articleService.editArticle(reqMap));
     }
     
@@ -121,7 +117,6 @@ public class AdminApiController {
      */
     @GetMapping("/article/del/{id}")
     public Msg del(@PathVariable("id")  String id){
-    	System.out.println("删除文章");
     	articleService.deleteArticleById(id);
         return Result.success();
     }
@@ -132,7 +127,6 @@ public class AdminApiController {
      */
     @GetMapping("/comment/del/{id}")
     public Msg delComment(@PathVariable("id")  String id){
-    	System.out.println("删除评论");
     	commentService.deleteCommentById(id);
         return Result.success();
     }
@@ -147,7 +141,6 @@ public class AdminApiController {
     	map.put("articleNum", articleService.getArticleNum());
     	map.put("commentNum", commentService.getCommentNum());
     	map.put("tagNum", tagService.getTagNum());
-    	System.out.println("获取后台主页数据");
         return Result.success(map);
     }
     

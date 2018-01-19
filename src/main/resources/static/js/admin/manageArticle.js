@@ -19,14 +19,12 @@ $(function () {
 	
 	function getArticle(page)
 	{
-		console.log("/api/article/list/"+page);
 		$.ajax({
 	        url: "/api/article/list/"+page,
 	        type: "GET",
 	        contentType: 'application/json; charset=UTF-8',
 	        dataType: "json",
 	        success: function(msg) {
-	        	console.log(msg);
 	            if (msg.code == "200") {
 	                //登录成功
 	            	var result='';
@@ -53,7 +51,6 @@ $(function () {
 	                	delArticle($(this).attr('data'));
 	        		});
 	            } else {//登录失败
-	            // console.log(msg);
 	            }
 	        },
 	    });
@@ -85,8 +82,6 @@ $(function () {
 	
 	function setPageCtrl(nowPage,num)
 	{
-		console.log(nowPage);
-		console.log(num);
 		var result='<li>\
 				      <a class="pages" href="#" aria-label="Previous" data="'+(nowPage>1?nowPage-1:nowPage)+'">\
 				        <span aria-hidden="true">&laquo;</span>\

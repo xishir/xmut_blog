@@ -37,7 +37,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
         System.out.println("错误");
-
         return new ResponseEntity<Object>("出错了", NOT_EXTENDED);
 
     }

@@ -60,7 +60,6 @@ public class CommentController {
      */
     @PostMapping("/create")
     public Msg create(@RequestBody Map<String,Object> reqMap){
-    	System.out.println("添加评论");
     	service.createcomment(reqMap);
         return Result.success();
     }

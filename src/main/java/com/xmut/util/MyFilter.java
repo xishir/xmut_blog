@@ -34,7 +34,6 @@ public class MyFilter implements Filter {
     	HttpSession session = req.getSession();
         System.out.println("执行过滤操作");
         Object isLogin=session.getAttribute("isLogin");
-        System.out.println(isLogin);
         if(isLogin!=null&&((int)isLogin)==1)
         {
         	System.out.println("已登陆");
@@ -46,7 +45,6 @@ public class MyFilter implements Filter {
         		req.getRequestDispatcher("/login").forward(req, reps);
         	}
         	else {
-        		System.out.println(reps.getStatus());
             	req.getRequestDispatcher("/error").forward(req, reps);
         	}
         }

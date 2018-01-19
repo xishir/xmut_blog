@@ -72,7 +72,6 @@ $("#createArticle").click(function() {
         "time": $("#times").val(),
         "content": testEditor.getMarkdown()
     };
-    console.log(datas);
     $.ajax({
         url: "/api/admin/article/create",
         type: "POST",
