@@ -78,6 +78,8 @@
             <h4>Elsewhere</h4>
             <ol class="list-unstyled">
               <li><a href="https://github.com/xishir/xmut_keshe">GitHub</a></li>
+              <li><a href="https://www.baidu.com">Baidu</a></li>
+              <li><a href="https://weibo.com/5041619475/">Weibo</a></li>
             </ol>
           </div>
         </div><!-- /.blog-sidebar -->
