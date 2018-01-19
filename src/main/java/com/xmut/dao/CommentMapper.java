@@ -15,24 +15,24 @@ import com.xmut.pojo.CommentInfo;
 @Mapper
 public interface CommentMapper {
 
-	@Insert("INSERT INTO blog.k_comment (article_id,nickname,content,time) VALUES (#{article_id},#{nickname},#{content},#{time})")
+	@Insert("INSERT INTO k_comment (article_id,nickname,content,time) VALUES (#{article_id},#{nickname},#{content},#{time})")
     void createcomment(Map<String, Object> reqMap);
 	
-	@Select("select * FROM blog.k_comment where article_id=#{article_id} order by time desc")
+	@Select("select * FROM k_comment where article_id=#{article_id} order by time desc")
     ArrayList<CommentInfo> getComments(@Param("article_id") String article_id);
 	
-	@Select("select comment.id,article_id,title,nickname,comment.content,comment.time,comment.star,diss FROM blog.k_comment comment,blog.k_article article where article_id=article.id order by time desc")
+	@Select("select comment.id,article_id,title,nickname,comment.content,comment.time,comment.star,diss FROM k_comment comment,k_article article where article_id=article.id order by time desc")
     ArrayList<CommentInfo> getAllComments();
 	
-	@Select("select count(*) FROM blog.k_comment")
+	@Select("select count(*) FROM k_comment")
 	String getCommentNum();
 	
-	@Update("UPDATE blog.k_comment SET star = star+1 WHERE id = #{id}")
+	@Update("UPDATE k_comment SET star = star+1 WHERE id = #{id}")
     void addStar(@Param("id") String id);
 	
-	@Update("UPDATE blog.k_comment SET diss = diss+1 WHERE id = #{id}")
+	@Update("UPDATE k_comment SET diss = diss+1 WHERE id = #{id}")
     void addDiss( @Param("id") String id);
 	
-	@Delete("DELETE FROM blog.k_comment WHERE id = #{id}")
+	@Delete("DELETE FROM k_comment WHERE id = #{id}")
     void deleteCommentById(@Param("id") String id);
 }

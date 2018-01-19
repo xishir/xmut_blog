@@ -17,51 +17,51 @@ import com.xmut.pojo.TagInfo;
 public interface ArticleMapper {
 	
 
-	@Insert("INSERT INTO blog.k_article (title,author,sort,time,content) VALUES (#{title},#{author},#{sort},#{time},#{content})")
+	@Insert("INSERT INTO k_article (title,author,sort,time,content) VALUES (#{title},#{author},#{sort},#{time},#{content})")
     void createArticle(Map<String, Object> reqMap);
 	
-	@Update("UPDATE blog.k_article SET visit = visit+1 WHERE id = #{id}")
+	@Update("UPDATE k_article SET visit = visit+1 WHERE id = #{id}")
     void addVisit(@Param("id") String id);
 	
-	@Update("UPDATE blog.k_article SET comment = comment+1 WHERE id = #{id}")
+	@Update("UPDATE k_article SET comment = comment+1 WHERE id = #{id}")
     void addComment(@Param("id") String id);
 	
-	@Update("UPDATE blog.k_article SET star = star+1 WHERE id = #{id}")
+	@Update("UPDATE k_article SET star = star+1 WHERE id = #{id}")
     void addStar( @Param("id") String id);
 	
-	@Update("UPDATE blog.k_article SET title = #{title} WHERE id = #{id}")
+	@Update("UPDATE k_article SET title = #{title} WHERE id = #{id}")
     void UpdataTitle(@Param("title") String title, @Param("id") String id);
 	
-	@Update("UPDATE blog.k_article SET author = #{author} WHERE id = #{id}")
+	@Update("UPDATE k_article SET author = #{author} WHERE id = #{id}")
     void UpdataAuthor(@Param("author") String author, @Param("id") String id);
 	
-	@Update("UPDATE blog.k_article SET content = #{content} WHERE id = #{id}")
+	@Update("UPDATE k_article SET content = #{content} WHERE id = #{id}")
     void UpdataContent(@Param("content") String content, @Param("id") String id);
 	
-	@Update("UPDATE blog.k_article SET title = #{title},author = #{author},sort = #{sort},time=#{time},content = #{content} WHERE id = #{id}")
+	@Update("UPDATE k_article SET title = #{title},author = #{author},sort = #{sort},time=#{time},content = #{content} WHERE id = #{id}")
     void UpdataArticle(Map<String, Object> reqMap);
 	
-	@Select("select * FROM blog.k_article WHERE id = #{id}")
+	@Select("select * FROM k_article WHERE id = #{id}")
 	ArticleInfo getArticle(@Param("id") String id);
     
-    @Select("select * FROM blog.k_article order by time desc")
+    @Select("select * FROM k_article order by time desc")
     ArrayList<ArticleInfo> getArticles();
     
-    @Select("select id from blog.k_article where id<#{id} order by id desc limit 1")
+    @Select("select id from k_article where id<#{id} order by id desc limit 1")
     String getFrontID(@Param("id") String id);
     
-    @Select("select id from blog.k_article where id>#{id} order by id  limit 1")
+    @Select("select id from k_article where id>#{id} order by id  limit 1")
     String getBehindID(@Param("id") String id);
     
-    @Select("select * FROM blog.k_article order by time desc limit 10")
+    @Select("select * FROM k_article order by time desc limit 10")
     ArrayList<ArticleInfo> getArticles_Hot();
     
-    @Select("select distinct(sort) FROM blog.k_article ")
+    @Select("select distinct(sort) FROM k_article ")
     ArrayList<TagInfo> getSort();
     
-    @Select("select count(*) FROM blog.k_article ")
+    @Select("select count(*) FROM k_article ")
     String getPageNum();
     
-    @Delete("DELETE FROM blog.k_article WHERE id = #{id}")
+    @Delete("DELETE FROM k_article WHERE id = #{id}")
     void deleteArticleById(@Param("id") String id);
 }

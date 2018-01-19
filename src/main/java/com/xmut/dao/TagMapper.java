@@ -14,28 +14,28 @@ import com.xmut.pojo.TagInfo;
 @Mapper
 public interface TagMapper {
 	
-	@Insert("INSERT INTO blog.k_tag(tag) VALUES (#{tag})")
+	@Insert("INSERT INTO k_tag(tag) VALUES (#{tag})")
     void createtag(@Param("tag") String tag);
 	
-	@Delete("DELETE FROM blog.k_tag WHERE id = #{id} or tag=#{tag}")
+	@Delete("DELETE FROM k_tag WHERE id = #{id} or tag=#{tag}")
     void deleteTag(TagInfo taginfo);
 	
-	@Select("select distinct tag FROM blog.k_tag ")	
+	@Select("select distinct tag FROM k_tag ")	
     ArrayList<String> getSort();
 	
-	@Select("select tag,num FROM blog.k_tag ")	
+	@Select("select tag,num FROM k_tag ")	
     ArrayList<TagInfo> getSorts();
 	
-	@Select("select * FROM blog.k_tag where id=#{id}")
+	@Select("select * FROM k_tag where id=#{id}")
 	TagInfo getTag(@Param("id") String id);
 	
-	@Update("UPDATE blog.k_tag SET num = num+1 WHERE tag = #{tag}")
+	@Update("UPDATE k_tag SET num = num+1 WHERE tag = #{tag}")
     void addNum(@Param("tag") String tag);
 	
-	@Update("UPDATE blog.k_tag SET tag = #{tag} WHERE id = #{id}")
+	@Update("UPDATE k_tag SET tag = #{tag} WHERE id = #{id}")
     void updataTag(@Param("tag") String tag,@Param("id") String id);
 	
-	@Select("select count(*) FROM blog.k_tag ")
+	@Select("select count(*) FROM k_tag ")
     String getTagNum();
 
 }

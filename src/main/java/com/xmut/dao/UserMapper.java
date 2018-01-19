@@ -15,24 +15,24 @@ import com.xmut.pojo.UserInfo;
 @Mapper
 public interface UserMapper {
 
-    @Insert("INSERT INTO blog.k_user(use_name,use_password) VALUES (#{use_name},md5(#{use_password}))")
+    @Insert("INSERT INTO k_user(use_name,use_password) VALUES (#{use_name},md5(#{use_password}))")
     void createUser(Map<String, Object> reqMap);
 
-    @Select("select * FROM blog.k_user WHERE user_id = #{user_id}")
+    @Select("select * FROM k_user WHERE user_id = #{user_id}")
     UserInfo getUser(@Param("user_id") Integer user_id);
     
-    @Select("select about FROM blog.k_user WHERE user_name = #{user_name}")
+    @Select("select about FROM k_user WHERE user_name = #{user_name}")
     String getUserByName(@Param("user_name") String user_name);
     
-    @Select("select * FROM blog.k_user ")
+    @Select("select * FROM k_user ")
     ArrayList<UserInfo> getUsers();
 
-    @Update("UPDATE blog.k_user SET user_password=md5(#{user_password}),about=#{about} WHERE user_name = #{user_name}")
+    @Update("UPDATE k_user SET user_password=md5(#{user_password}),about=#{about} WHERE user_name = #{user_name}")
     void updateUser(Map<String,Object> reqMap);
 
-    @Delete("DELETE FROM blog.k_user WHERE user_id = #{user_id}")
+    @Delete("DELETE FROM k_user WHERE user_id = #{user_id}")
     void deleteUserByUserId(UserInfo userInfo);
     
-    @Select("select count(*) FROM blog.k_user where user_name=#{user_name} and user_password=md5(#{user_password})")
+    @Select("select count(*) FROM k_user where user_name=#{user_name} and user_password=md5(#{user_password})")
     Integer checkLogin(Map<String, Object> reqMap);
 }
