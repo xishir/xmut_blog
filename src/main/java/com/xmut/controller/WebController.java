@@ -8,7 +8,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;  
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.xmut.util.XssUtil;  
   
 @Controller  
 @RequestMapping("/")  
@@ -29,7 +31,7 @@ public class WebController {
     @RequestMapping("/Archive/{id}")
     public String Archive(@PathVariable("id")  String id,ModelMap map){  
         map.put("title", "Archive");  
-        map.put("ArchiveId",id);  
+        map.put("ArchiveId",XssUtil.cleanXSS(id));  
         return "Archive";  
     }  
     

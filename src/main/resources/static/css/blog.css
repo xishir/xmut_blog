@@ -198,7 +198,9 @@ h6, .h6 {
   resize: none;
 }
 .input-group{
-  margin-top:80px;
+  margin-top:8px;
+  float:left;
+  margin-bottom:40px;
 }
 /*
  * Modal
